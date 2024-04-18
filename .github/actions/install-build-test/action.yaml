@@ -1,0 +1,10 @@
+name: install_build_test
+description: Install Build and Test
+runs:
+  using: 'composite'
+  steps:
+    - shell: bash
+      run: |
+        pnpm i
+        pnpm run build
+        pnpm test
