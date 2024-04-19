@@ -251,7 +251,7 @@ function formatResult(result: TestResult, nameWidth: number): string {
         `mean: ${mean.toPrecision(5).padStart(8)} ` +
         `p95: ${p95.toPrecision(5).padStart(8)} ` +
         `min/max: ${min.toPrecision(5).padStart(8)}/${max.toPrecision(5).padStart(8)} ` +
-        `${duration.toFixed(2)}ms `;
+        `${duration.toFixed(2).padStart(7)}ms `;
 
     return msg;
 }

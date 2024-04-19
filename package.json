@@ -9,7 +9,8 @@
     "node": ">=18"
   },
   "bin": {
-    "list-files": "./bin.mjs"
+    "perf-test": "./bin.mjs",
+    "ngram": "./nGram.mjs"
   },
   "scripts": {
     "build": "tsc -p .",
@@ -26,6 +27,7 @@
     "prettier:fix": "prettier -w .",
     "eslint:check": "eslint .",
     "eslint:fix": "eslint . --fix",
+    "ngram": "node ./nGram.mjs",
     "app": "node ./bin.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -67,6 +69,7 @@
     "vitest": "^1.5.0"
   },
   "dependencies": {
+    "@cspell/cspell-pipe": "^8.7.0",
     "chalk": "^5.3.0",
     "commander": "^12.0.0",
     "globby": "^14.0.1",
@@ -75,6 +78,7 @@
   },
   "files": [
     "bin.mjs",
+    "nGram.mjs",
     "dist/**/*.mjs",
     "dist/**/*.js",
     "!**/*.test.*",

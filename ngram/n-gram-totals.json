@@ -1,0 +1,2647 @@
+[
+    {
+        "year": 1470,
+        "count": 984,
+        "volumes": 10
+    },
+    {
+        "year": 1472,
+        "count": 117652,
+        "volumes": 902
+    },
+    {
+        "year": 1475,
+        "count": 328918,
+        "volumes": 1162
+    },
+    {
+        "year": 1476,
+        "count": 20502,
+        "volumes": 186
+    },
+    {
+        "year": 1477,
+        "count": 376341,
+        "volumes": 2479
+    },
+    {
+        "year": 1478,
+        "count": 179561,
+        "volumes": 1063
+    },
+    {
+        "year": 1480,
+        "count": 305089,
+        "volumes": 2082
+    },
+    {
+        "year": 1481,
+        "count": 258347,
+        "volumes": 1717
+    },
+    {
+        "year": 1483,
+        "count": 4933,
+        "volumes": 17
+    },
+    {
+        "year": 1484,
+        "count": 6,
+        "volumes": 1
+    },
+    {
+        "year": 1485,
+        "count": 324765,
+        "volumes": 1139
+    },
+    {
+        "year": 1486,
+        "count": 1818,
+        "volumes": 12
+    },
+    {
+        "year": 1487,
+        "count": 94711,
+        "volumes": 751
+    },
+    {
+        "year": 1489,
+        "count": 464221,
+        "volumes": 1925
+    },
+    {
+        "year": 1490,
+        "count": 50262,
+        "volumes": 246
+    },
+    {
+        "year": 1491,
+        "count": 143415,
+        "volumes": 1075
+    },
+    {
+        "year": 1494,
+        "count": 391956,
+        "volumes": 1623
+    },
+    {
+        "year": 1496,
+        "count": 18850,
+        "volumes": 178
+    },
+    {
+        "year": 1497,
+        "count": 19442,
+        "volumes": 462
+    },
+    {
+        "year": 1499,
+        "count": 66562,
+        "volumes": 1533
+    },
+    {
+        "year": 1500,
+        "count": 1068802,
+        "volumes": 9963
+    },
+    {
+        "year": 1501,
+        "count": 3086943,
+        "volumes": 20288
+    },
+    {
+        "year": 1505,
+        "count": 948528,
+        "volumes": 2396
+    },
+    {
+        "year": 1506,
+        "count": 16007,
+        "volumes": 131
+    },
+    {
+        "year": 1507,
+        "count": 46280,
+        "volumes": 692
+    },
+    {
+        "year": 1508,
+        "count": 452561,
+        "volumes": 3077
+    },
+    {
+        "year": 1509,
+        "count": 18791,
+        "volumes": 196
+    },
+    {
+        "year": 1510,
+        "count": 39,
+        "volumes": 2
+    },
+    {
+        "year": 1512,
+        "count": 2,
+        "volumes": 1
+    },
+    {
+        "year": 1517,
+        "count": 500093,
+        "volumes": 1435
+    },
+    {
+        "year": 1518,
+        "count": 26,
+        "volumes": 2
+    },
+    {
+        "year": 1520,
+        "count": 268894,
+        "volumes": 1236
+    },
+    {
+        "year": 1522,
+        "count": 54,
+        "volumes": 4
+    },
+    {
+        "year": 1523,
+        "count": 479529,
+        "volumes": 1134
+    },
+    {
+        "year": 1524,
+        "count": 675,
+        "volumes": 9
+    },
+    {
+        "year": 1525,
+        "count": 45012,
+        "volumes": 343
+    },
+    {
+        "year": 1526,
+        "count": 231894,
+        "volumes": 1219
+    },
+    {
+        "year": 1527,
+        "count": 69191,
+        "volumes": 428
+    },
+    {
+        "year": 1528,
+        "count": 2710,
+        "volumes": 36
+    },
+    {
+        "year": 1529,
+        "count": 224742,
+        "volumes": 916
+    },
+    {
+        "year": 1530,
+        "count": 2461,
+        "volumes": 27
+    },
+    {
+        "year": 1531,
+        "count": 136675,
+        "volumes": 972
+    },
+    {
+        "year": 1533,
+        "count": 195977,
+        "volumes": 1577
+    },
+    {
+        "year": 1534,
+        "count": 24867,
+        "volumes": 88
+    },
+    {
+        "year": 1535,
+        "count": 316815,
+        "volumes": 1587
+    },
+    {
+        "year": 1536,
+        "count": 17898,
+        "volumes": 161
+    },
+    {
+        "year": 1537,
+        "count": 101716,
+        "volumes": 360
+    },
+    {
+        "year": 1538,
+        "count": 379425,
+        "volumes": 1102
+    },
+    {
+        "year": 1539,
+        "count": 319402,
+        "volumes": 987
+    },
+    {
+        "year": 1540,
+        "count": 4016,
+        "volumes": 64
+    },
+    {
+        "year": 1541,
+        "count": 44974,
+        "volumes": 403
+    },
+    {
+        "year": 1542,
+        "count": 172094,
+        "volumes": 1034
+    },
+    {
+        "year": 1543,
+        "count": 663,
+        "volumes": 7
+    },
+    {
+        "year": 1544,
+        "count": 4187,
+        "volumes": 49
+    },
+    {
+        "year": 1545,
+        "count": 94944,
+        "volumes": 600
+    },
+    {
+        "year": 1546,
+        "count": 12522,
+        "volumes": 109
+    },
+    {
+        "year": 1547,
+        "count": 1026974,
+        "volumes": 3704
+    },
+    {
+        "year": 1548,
+        "count": 533208,
+        "volumes": 2390
+    },
+    {
+        "year": 1549,
+        "count": 510740,
+        "volumes": 2175
+    },
+    {
+        "year": 1550,
+        "count": 43592,
+        "volumes": 740
+    },
+    {
+        "year": 1551,
+        "count": 480609,
+        "volumes": 3275
+    },
+    {
+        "year": 1552,
+        "count": 117805,
+        "volumes": 485
+    },
+    {
+        "year": 1553,
+        "count": 264381,
+        "volumes": 1387
+    },
+    {
+        "year": 1554,
+        "count": 60502,
+        "volumes": 353
+    },
+    {
+        "year": 1555,
+        "count": 198107,
+        "volumes": 1037
+    },
+    {
+        "year": 1556,
+        "count": 96,
+        "volumes": 15
+    },
+    {
+        "year": 1557,
+        "count": 15433,
+        "volumes": 144
+    },
+    {
+        "year": 1558,
+        "count": 237705,
+        "volumes": 1287
+    },
+    {
+        "year": 1559,
+        "count": 137247,
+        "volumes": 628
+    },
+    {
+        "year": 1560,
+        "count": 15287,
+        "volumes": 140
+    },
+    {
+        "year": 1561,
+        "count": 209453,
+        "volumes": 1115
+    },
+    {
+        "year": 1562,
+        "count": 83094,
+        "volumes": 630
+    },
+    {
+        "year": 1563,
+        "count": 318387,
+        "volumes": 1391
+    },
+    {
+        "year": 1564,
+        "count": 18654,
+        "volumes": 166
+    },
+    {
+        "year": 1565,
+        "count": 80360,
+        "volumes": 638
+    },
+    {
+        "year": 1566,
+        "count": 314233,
+        "volumes": 1084
+    },
+    {
+        "year": 1567,
+        "count": 22456,
+        "volumes": 252
+    },
+    {
+        "year": 1568,
+        "count": 141191,
+        "volumes": 482
+    },
+    {
+        "year": 1569,
+        "count": 75043,
+        "volumes": 452
+    },
+    {
+        "year": 1570,
+        "count": 209346,
+        "volumes": 1281
+    },
+    {
+        "year": 1571,
+        "count": 48573,
+        "volumes": 561
+    },
+    {
+        "year": 1572,
+        "count": 192347,
+        "volumes": 878
+    },
+    {
+        "year": 1573,
+        "count": 94544,
+        "volumes": 464
+    },
+    {
+        "year": 1574,
+        "count": 58265,
+        "volumes": 649
+    },
+    {
+        "year": 1575,
+        "count": 274746,
+        "volumes": 1326
+    },
+    {
+        "year": 1576,
+        "count": 113522,
+        "volumes": 759
+    },
+    {
+        "year": 1577,
+        "count": 262262,
+        "volumes": 1836
+    },
+    {
+        "year": 1578,
+        "count": 113624,
+        "volumes": 861
+    },
+    {
+        "year": 1579,
+        "count": 316981,
+        "volumes": 2452
+    },
+    {
+        "year": 1580,
+        "count": 55990,
+        "volumes": 358
+    },
+    {
+        "year": 1581,
+        "count": 592982,
+        "volumes": 2712
+    },
+    {
+        "year": 1582,
+        "count": 220883,
+        "volumes": 1175
+    },
+    {
+        "year": 1583,
+        "count": 144233,
+        "volumes": 839
+    },
+    {
+        "year": 1584,
+        "count": 240781,
+        "volumes": 1160
+    },
+    {
+        "year": 1585,
+        "count": 340963,
+        "volumes": 2089
+    },
+    {
+        "year": 1586,
+        "count": 594467,
+        "volumes": 3495
+    },
+    {
+        "year": 1587,
+        "count": 158887,
+        "volumes": 581
+    },
+    {
+        "year": 1588,
+        "count": 756987,
+        "volumes": 4371
+    },
+    {
+        "year": 1589,
+        "count": 198718,
+        "volumes": 1042
+    },
+    {
+        "year": 1590,
+        "count": 412787,
+        "volumes": 2067
+    },
+    {
+        "year": 1591,
+        "count": 213377,
+        "volumes": 1445
+    },
+    {
+        "year": 1592,
+        "count": 765061,
+        "volumes": 4594
+    },
+    {
+        "year": 1593,
+        "count": 549502,
+        "volumes": 3467
+    },
+    {
+        "year": 1594,
+        "count": 535982,
+        "volumes": 3948
+    },
+    {
+        "year": 1595,
+        "count": 239303,
+        "volumes": 2078
+    },
+    {
+        "year": 1596,
+        "count": 639821,
+        "volumes": 4596
+    },
+    {
+        "year": 1597,
+        "count": 852209,
+        "volumes": 5148
+    },
+    {
+        "year": 1598,
+        "count": 316899,
+        "volumes": 2622
+    },
+    {
+        "year": 1599,
+        "count": 678920,
+        "volumes": 5230
+    },
+    {
+        "year": 1600,
+        "count": 1180032,
+        "volumes": 6409
+    },
+    {
+        "year": 1601,
+        "count": 3229584,
+        "volumes": 15638
+    },
+    {
+        "year": 1602,
+        "count": 1211566,
+        "volumes": 6389
+    },
+    {
+        "year": 1603,
+        "count": 1341305,
+        "volumes": 7481
+    },
+    {
+        "year": 1604,
+        "count": 731386,
+        "volumes": 5214
+    },
+    {
+        "year": 1605,
+        "count": 1368354,
+        "volumes": 6508
+    },
+    {
+        "year": 1606,
+        "count": 346648,
+        "volumes": 2672
+    },
+    {
+        "year": 1607,
+        "count": 839002,
+        "volumes": 4079
+    },
+    {
+        "year": 1608,
+        "count": 1270554,
+        "volumes": 6407
+    },
+    {
+        "year": 1609,
+        "count": 1783928,
+        "volumes": 10249
+    },
+    {
+        "year": 1610,
+        "count": 191370,
+        "volumes": 1479
+    },
+    {
+        "year": 1611,
+        "count": 715439,
+        "volumes": 5112
+    },
+    {
+        "year": 1612,
+        "count": 757164,
+        "volumes": 4148
+    },
+    {
+        "year": 1613,
+        "count": 1120903,
+        "volumes": 6777
+    },
+    {
+        "year": 1614,
+        "count": 1394922,
+        "volumes": 8627
+    },
+    {
+        "year": 1615,
+        "count": 531066,
+        "volumes": 3886
+    },
+    {
+        "year": 1616,
+        "count": 893916,
+        "volumes": 5105
+    },
+    {
+        "year": 1617,
+        "count": 433413,
+        "volumes": 3079
+    },
+    {
+        "year": 1618,
+        "count": 375009,
+        "volumes": 3140
+    },
+    {
+        "year": 1619,
+        "count": 396358,
+        "volumes": 2588
+    },
+    {
+        "year": 1620,
+        "count": 1156351,
+        "volumes": 6433
+    },
+    {
+        "year": 1621,
+        "count": 1450663,
+        "volumes": 9402
+    },
+    {
+        "year": 1622,
+        "count": 1269452,
+        "volumes": 9531
+    },
+    {
+        "year": 1623,
+        "count": 1418093,
+        "volumes": 9532
+    },
+    {
+        "year": 1624,
+        "count": 800688,
+        "volumes": 5386
+    },
+    {
+        "year": 1625,
+        "count": 2030709,
+        "volumes": 12448
+    },
+    {
+        "year": 1626,
+        "count": 530251,
+        "volumes": 3938
+    },
+    {
+        "year": 1627,
+        "count": 956640,
+        "volumes": 4993
+    },
+    {
+        "year": 1628,
+        "count": 343966,
+        "volumes": 3064
+    },
+    {
+        "year": 1629,
+        "count": 622141,
+        "volumes": 4879
+    },
+    {
+        "year": 1630,
+        "count": 894135,
+        "volumes": 6301
+    },
+    {
+        "year": 1631,
+        "count": 2180638,
+        "volumes": 13176
+    },
+    {
+        "year": 1632,
+        "count": 1730986,
+        "volumes": 12106
+    },
+    {
+        "year": 1633,
+        "count": 1656334,
+        "volumes": 9541
+    },
+    {
+        "year": 1634,
+        "count": 2520416,
+        "volumes": 13771
+    },
+    {
+        "year": 1635,
+        "count": 1559131,
+        "volumes": 10181
+    },
+    {
+        "year": 1636,
+        "count": 1042047,
+        "volumes": 8394
+    },
+    {
+        "year": 1637,
+        "count": 1157505,
+        "volumes": 7467
+    },
+    {
+        "year": 1638,
+        "count": 1735394,
+        "volumes": 9301
+    },
+    {
+        "year": 1639,
+        "count": 1644978,
+        "volumes": 11420
+    },
+    {
+        "year": 1640,
+        "count": 1952664,
+        "volumes": 14624
+    },
+    {
+        "year": 1641,
+        "count": 2121587,
+        "volumes": 15493
+    },
+    {
+        "year": 1642,
+        "count": 1834554,
+        "volumes": 10174
+    },
+    {
+        "year": 1643,
+        "count": 1389552,
+        "volumes": 6898
+    },
+    {
+        "year": 1644,
+        "count": 2392032,
+        "volumes": 8537
+    },
+    {
+        "year": 1645,
+        "count": 1323366,
+        "volumes": 6772
+    },
+    {
+        "year": 1646,
+        "count": 1581635,
+        "volumes": 7088
+    },
+    {
+        "year": 1647,
+        "count": 1558530,
+        "volumes": 10092
+    },
+    {
+        "year": 1648,
+        "count": 2908517,
+        "volumes": 12915
+    },
+    {
+        "year": 1649,
+        "count": 1418100,
+        "volumes": 8109
+    },
+    {
+        "year": 1650,
+        "count": 1373025,
+        "volumes": 8303
+    },
+    {
+        "year": 1651,
+        "count": 3115802,
+        "volumes": 15868
+    },
+    {
+        "year": 1652,
+        "count": 1826169,
+        "volumes": 10379
+    },
+    {
+        "year": 1653,
+        "count": 3252657,
+        "volumes": 17466
+    },
+    {
+        "year": 1654,
+        "count": 3322253,
+        "volumes": 19453
+    },
+    {
+        "year": 1655,
+        "count": 2566078,
+        "volumes": 14424
+    },
+    {
+        "year": 1656,
+        "count": 1895266,
+        "volumes": 9974
+    },
+    {
+        "year": 1657,
+        "count": 3443736,
+        "volumes": 16502
+    },
+    {
+        "year": 1658,
+        "count": 2458686,
+        "volumes": 15254
+    },
+    {
+        "year": 1659,
+        "count": 3153069,
+        "volumes": 17325
+    },
+    {
+        "year": 1660,
+        "count": 5137927,
+        "volumes": 27446
+    },
+    {
+        "year": 1661,
+        "count": 2664468,
+        "volumes": 13492
+    },
+    {
+        "year": 1662,
+        "count": 4441083,
+        "volumes": 25139
+    },
+    {
+        "year": 1663,
+        "count": 1781821,
+        "volumes": 11668
+    },
+    {
+        "year": 1664,
+        "count": 1063156,
+        "volumes": 8264
+    },
+    {
+        "year": 1665,
+        "count": 3518661,
+        "volumes": 20229
+    },
+    {
+        "year": 1666,
+        "count": 2174552,
+        "volumes": 10521
+    },
+    {
+        "year": 1667,
+        "count": 3634766,
+        "volumes": 20030
+    },
+    {
+        "year": 1668,
+        "count": 3240007,
+        "volumes": 15662
+    },
+    {
+        "year": 1669,
+        "count": 3576042,
+        "volumes": 19515
+    },
+    {
+        "year": 1670,
+        "count": 4402063,
+        "volumes": 26715
+    },
+    {
+        "year": 1671,
+        "count": 3265066,
+        "volumes": 24498
+    },
+    {
+        "year": 1672,
+        "count": 4769203,
+        "volumes": 28615
+    },
+    {
+        "year": 1673,
+        "count": 3696254,
+        "volumes": 25246
+    },
+    {
+        "year": 1674,
+        "count": 3652683,
+        "volumes": 20191
+    },
+    {
+        "year": 1675,
+        "count": 5807059,
+        "volumes": 32720
+    },
+    {
+        "year": 1676,
+        "count": 5773669,
+        "volumes": 33171
+    },
+    {
+        "year": 1677,
+        "count": 4391480,
+        "volumes": 26606
+    },
+    {
+        "year": 1678,
+        "count": 4162686,
+        "volumes": 28595
+    },
+    {
+        "year": 1679,
+        "count": 3326397,
+        "volumes": 24401
+    },
+    {
+        "year": 1680,
+        "count": 4253448,
+        "volumes": 28830
+    },
+    {
+        "year": 1681,
+        "count": 7172058,
+        "volumes": 38842
+    },
+    {
+        "year": 1682,
+        "count": 6191859,
+        "volumes": 36688
+    },
+    {
+        "year": 1683,
+        "count": 7891819,
+        "volumes": 41561
+    },
+    {
+        "year": 1684,
+        "count": 6384435,
+        "volumes": 35878
+    },
+    {
+        "year": 1685,
+        "count": 7085805,
+        "volumes": 46127
+    },
+    {
+        "year": 1686,
+        "count": 3236862,
+        "volumes": 25008
+    },
+    {
+        "year": 1687,
+        "count": 4888755,
+        "volumes": 25983
+    },
+    {
+        "year": 1688,
+        "count": 7070095,
+        "volumes": 32215
+    },
+    {
+        "year": 1689,
+        "count": 5170512,
+        "volumes": 28027
+    },
+    {
+        "year": 1690,
+        "count": 3467399,
+        "volumes": 22138
+    },
+    {
+        "year": 1691,
+        "count": 3066158,
+        "volumes": 21599
+    },
+    {
+        "year": 1692,
+        "count": 4524924,
+        "volumes": 27332
+    },
+    {
+        "year": 1693,
+        "count": 6877956,
+        "volumes": 35269
+    },
+    {
+        "year": 1694,
+        "count": 5838994,
+        "volumes": 35944
+    },
+    {
+        "year": 1695,
+        "count": 6035866,
+        "volumes": 37184
+    },
+    {
+        "year": 1696,
+        "count": 4556673,
+        "volumes": 32982
+    },
+    {
+        "year": 1697,
+        "count": 5858270,
+        "volumes": 35346
+    },
+    {
+        "year": 1698,
+        "count": 9212546,
+        "volumes": 55171
+    },
+    {
+        "year": 1699,
+        "count": 9072630,
+        "volumes": 52717
+    },
+    {
+        "year": 1700,
+        "count": 19444085,
+        "volumes": 89538
+    },
+    {
+        "year": 1701,
+        "count": 13774314,
+        "volumes": 85476
+    },
+    {
+        "year": 1702,
+        "count": 10930541,
+        "volumes": 70993
+    },
+    {
+        "year": 1703,
+        "count": 10990826,
+        "volumes": 64653
+    },
+    {
+        "year": 1704,
+        "count": 14778184,
+        "volumes": 79470
+    },
+    {
+        "year": 1705,
+        "count": 11919503,
+        "volumes": 70264
+    },
+    {
+        "year": 1706,
+        "count": 12938541,
+        "volumes": 73313
+    },
+    {
+        "year": 1707,
+        "count": 16492841,
+        "volumes": 82556
+    },
+    {
+        "year": 1708,
+        "count": 15599497,
+        "volumes": 86540
+    },
+    {
+        "year": 1709,
+        "count": 12898619,
+        "volumes": 77998
+    },
+    {
+        "year": 1710,
+        "count": 11755416,
+        "volumes": 71637
+    },
+    {
+        "year": 1711,
+        "count": 14810192,
+        "volumes": 82697
+    },
+    {
+        "year": 1712,
+        "count": 11879996,
+        "volumes": 68754
+    },
+    {
+        "year": 1713,
+        "count": 8298400,
+        "volumes": 54998
+    },
+    {
+        "year": 1714,
+        "count": 14739197,
+        "volumes": 85537
+    },
+    {
+        "year": 1715,
+        "count": 13150292,
+        "volumes": 80555
+    },
+    {
+        "year": 1716,
+        "count": 13205486,
+        "volumes": 68969
+    },
+    {
+        "year": 1717,
+        "count": 14925090,
+        "volumes": 83618
+    },
+    {
+        "year": 1718,
+        "count": 12617266,
+        "volumes": 85331
+    },
+    {
+        "year": 1719,
+        "count": 16133011,
+        "volumes": 105889
+    },
+    {
+        "year": 1720,
+        "count": 18695139,
+        "volumes": 116078
+    },
+    {
+        "year": 1721,
+        "count": 18452809,
+        "volumes": 99558
+    },
+    {
+        "year": 1722,
+        "count": 21694753,
+        "volumes": 119014
+    },
+    {
+        "year": 1723,
+        "count": 15765934,
+        "volumes": 94870
+    },
+    {
+        "year": 1724,
+        "count": 16307785,
+        "volumes": 95583
+    },
+    {
+        "year": 1725,
+        "count": 18486644,
+        "volumes": 111466
+    },
+    {
+        "year": 1726,
+        "count": 23134101,
+        "volumes": 150591
+    },
+    {
+        "year": 1727,
+        "count": 24333009,
+        "volumes": 153469
+    },
+    {
+        "year": 1728,
+        "count": 19428539,
+        "volumes": 124554
+    },
+    {
+        "year": 1729,
+        "count": 22365118,
+        "volumes": 125659
+    },
+    {
+        "year": 1730,
+        "count": 20877258,
+        "volumes": 118808
+    },
+    {
+        "year": 1731,
+        "count": 22047351,
+        "volumes": 121313
+    },
+    {
+        "year": 1732,
+        "count": 22419596,
+        "volumes": 138005
+    },
+    {
+        "year": 1733,
+        "count": 17457289,
+        "volumes": 101217
+    },
+    {
+        "year": 1734,
+        "count": 20505595,
+        "volumes": 125892
+    },
+    {
+        "year": 1735,
+        "count": 22826011,
+        "volumes": 123271
+    },
+    {
+        "year": 1736,
+        "count": 20336205,
+        "volumes": 109603
+    },
+    {
+        "year": 1737,
+        "count": 27676204,
+        "volumes": 146834
+    },
+    {
+        "year": 1738,
+        "count": 22090423,
+        "volumes": 114725
+    },
+    {
+        "year": 1739,
+        "count": 25915950,
+        "volumes": 147213
+    },
+    {
+        "year": 1740,
+        "count": 20639241,
+        "volumes": 123123
+    },
+    {
+        "year": 1741,
+        "count": 26012731,
+        "volumes": 147617
+    },
+    {
+        "year": 1742,
+        "count": 44215670,
+        "volumes": 199137
+    },
+    {
+        "year": 1743,
+        "count": 19079982,
+        "volumes": 118374
+    },
+    {
+        "year": 1744,
+        "count": 24044557,
+        "volumes": 147549
+    },
+    {
+        "year": 1745,
+        "count": 22400627,
+        "volumes": 126198
+    },
+    {
+        "year": 1746,
+        "count": 14832448,
+        "volumes": 82875
+    },
+    {
+        "year": 1747,
+        "count": 32001614,
+        "volumes": 178272
+    },
+    {
+        "year": 1748,
+        "count": 22634148,
+        "volumes": 136204
+    },
+    {
+        "year": 1749,
+        "count": 28697830,
+        "volumes": 170046
+    },
+    {
+        "year": 1750,
+        "count": 34347666,
+        "volumes": 191582
+    },
+    {
+        "year": 1751,
+        "count": 39249359,
+        "volumes": 229855
+    },
+    {
+        "year": 1752,
+        "count": 28829275,
+        "volumes": 178939
+    },
+    {
+        "year": 1753,
+        "count": 43306692,
+        "volumes": 251402
+    },
+    {
+        "year": 1754,
+        "count": 40025663,
+        "volumes": 242557
+    },
+    {
+        "year": 1755,
+        "count": 36643283,
+        "volumes": 228161
+    },
+    {
+        "year": 1756,
+        "count": 28404680,
+        "volumes": 156430
+    },
+    {
+        "year": 1757,
+        "count": 34143116,
+        "volumes": 200469
+    },
+    {
+        "year": 1758,
+        "count": 37073901,
+        "volumes": 205799
+    },
+    {
+        "year": 1759,
+        "count": 47062603,
+        "volumes": 241866
+    },
+    {
+        "year": 1760,
+        "count": 46913419,
+        "volumes": 257728
+    },
+    {
+        "year": 1761,
+        "count": 45970470,
+        "volumes": 252545
+    },
+    {
+        "year": 1762,
+        "count": 41065125,
+        "volumes": 220337
+    },
+    {
+        "year": 1763,
+        "count": 53678108,
+        "volumes": 280001
+    },
+    {
+        "year": 1764,
+        "count": 51469527,
+        "volumes": 261366
+    },
+    {
+        "year": 1765,
+        "count": 53253596,
+        "volumes": 289580
+    },
+    {
+        "year": 1766,
+        "count": 50325294,
+        "volumes": 296893
+    },
+    {
+        "year": 1767,
+        "count": 50826547,
+        "volumes": 299539
+    },
+    {
+        "year": 1768,
+        "count": 48468732,
+        "volumes": 304172
+    },
+    {
+        "year": 1769,
+        "count": 42003810,
+        "volumes": 256387
+    },
+    {
+        "year": 1770,
+        "count": 48516570,
+        "volumes": 305122
+    },
+    {
+        "year": 1771,
+        "count": 53260932,
+        "volumes": 288810
+    },
+    {
+        "year": 1772,
+        "count": 46895920,
+        "volumes": 298951
+    },
+    {
+        "year": 1773,
+        "count": 49552908,
+        "volumes": 277389
+    },
+    {
+        "year": 1774,
+        "count": 54263756,
+        "volumes": 321082
+    },
+    {
+        "year": 1775,
+        "count": 54192985,
+        "volumes": 314085
+    },
+    {
+        "year": 1776,
+        "count": 55046877,
+        "volumes": 325971
+    },
+    {
+        "year": 1777,
+        "count": 53455236,
+        "volumes": 324154
+    },
+    {
+        "year": 1778,
+        "count": 49453968,
+        "volumes": 277570
+    },
+    {
+        "year": 1779,
+        "count": 52668759,
+        "volumes": 355499
+    },
+    {
+        "year": 1780,
+        "count": 48956370,
+        "volumes": 295633
+    },
+    {
+        "year": 1781,
+        "count": 51366326,
+        "volumes": 323163
+    },
+    {
+        "year": 1782,
+        "count": 55766852,
+        "volumes": 326288
+    },
+    {
+        "year": 1783,
+        "count": 60812519,
+        "volumes": 347741
+    },
+    {
+        "year": 1784,
+        "count": 74695888,
+        "volumes": 442161
+    },
+    {
+        "year": 1785,
+        "count": 66194770,
+        "volumes": 414784
+    },
+    {
+        "year": 1786,
+        "count": 65693555,
+        "volumes": 422774
+    },
+    {
+        "year": 1787,
+        "count": 85827300,
+        "volumes": 532370
+    },
+    {
+        "year": 1788,
+        "count": 88285742,
+        "volumes": 568172
+    },
+    {
+        "year": 1789,
+        "count": 106601987,
+        "volumes": 572722
+    },
+    {
+        "year": 1790,
+        "count": 110815701,
+        "volumes": 657447
+    },
+    {
+        "year": 1791,
+        "count": 109339036,
+        "volumes": 642275
+    },
+    {
+        "year": 1792,
+        "count": 122794406,
+        "volumes": 750287
+    },
+    {
+        "year": 1793,
+        "count": 129300218,
+        "volumes": 746347
+    },
+    {
+        "year": 1794,
+        "count": 131548423,
+        "volumes": 739669
+    },
+    {
+        "year": 1795,
+        "count": 131270904,
+        "volumes": 713237
+    },
+    {
+        "year": 1796,
+        "count": 144882287,
+        "volumes": 853212
+    },
+    {
+        "year": 1797,
+        "count": 143145499,
+        "volumes": 795856
+    },
+    {
+        "year": 1798,
+        "count": 156423406,
+        "volumes": 805340
+    },
+    {
+        "year": 1799,
+        "count": 150667501,
+        "volumes": 851545
+    },
+    {
+        "year": 1800,
+        "count": 251986582,
+        "volumes": 1338751
+    },
+    {
+        "year": 1801,
+        "count": 246877215,
+        "volumes": 1451657
+    },
+    {
+        "year": 1802,
+        "count": 237790224,
+        "volumes": 1289407
+    },
+    {
+        "year": 1803,
+        "count": 347023727,
+        "volumes": 1729811
+    },
+    {
+        "year": 1804,
+        "count": 307656038,
+        "volumes": 1696634
+    },
+    {
+        "year": 1805,
+        "count": 329067792,
+        "volumes": 1829319
+    },
+    {
+        "year": 1806,
+        "count": 407000442,
+        "volumes": 2169985
+    },
+    {
+        "year": 1807,
+        "count": 468265016,
+        "volumes": 2356536
+    },
+    {
+        "year": 1808,
+        "count": 550132919,
+        "volumes": 2759051
+    },
+    {
+        "year": 1809,
+        "count": 552531746,
+        "volumes": 2561588
+    },
+    {
+        "year": 1810,
+        "count": 682804204,
+        "volumes": 3017500
+    },
+    {
+        "year": 1811,
+        "count": 606964653,
+        "volumes": 2887276
+    },
+    {
+        "year": 1812,
+        "count": 789593964,
+        "volumes": 3254171
+    },
+    {
+        "year": 1813,
+        "count": 655495464,
+        "volumes": 2833843
+    },
+    {
+        "year": 1814,
+        "count": 609500521,
+        "volumes": 2866670
+    },
+    {
+        "year": 1815,
+        "count": 598459162,
+        "volumes": 2830026
+    },
+    {
+        "year": 1816,
+        "count": 736455207,
+        "volumes": 3094728
+    },
+    {
+        "year": 1817,
+        "count": 683663922,
+        "volumes": 3185291
+    },
+    {
+        "year": 1818,
+        "count": 739653175,
+        "volumes": 3430161
+    },
+    {
+        "year": 1819,
+        "count": 751196772,
+        "volumes": 3345944
+    },
+    {
+        "year": 1820,
+        "count": 833727322,
+        "volumes": 4005091
+    },
+    {
+        "year": 1821,
+        "count": 797929153,
+        "volumes": 3782625
+    },
+    {
+        "year": 1822,
+        "count": 950496097,
+        "volumes": 4602734
+    },
+    {
+        "year": 1823,
+        "count": 969200200,
+        "volumes": 4464243
+    },
+    {
+        "year": 1824,
+        "count": 1111259524,
+        "volumes": 5058994
+    },
+    {
+        "year": 1825,
+        "count": 1144973951,
+        "volumes": 5293494
+    },
+    {
+        "year": 1826,
+        "count": 1017046306,
+        "volumes": 4521572
+    },
+    {
+        "year": 1827,
+        "count": 1065144124,
+        "volumes": 4796754
+    },
+    {
+        "year": 1828,
+        "count": 1128263640,
+        "volumes": 4828493
+    },
+    {
+        "year": 1829,
+        "count": 1205563418,
+        "volumes": 5107640
+    },
+    {
+        "year": 1830,
+        "count": 1366131002,
+        "volumes": 5741960
+    },
+    {
+        "year": 1831,
+        "count": 1294824944,
+        "volumes": 5279899
+    },
+    {
+        "year": 1832,
+        "count": 2032851134,
+        "volumes": 8960313
+    },
+    {
+        "year": 1833,
+        "count": 1498954231,
+        "volumes": 5941610
+    },
+    {
+        "year": 1834,
+        "count": 1537840246,
+        "volumes": 5948663
+    },
+    {
+        "year": 1835,
+        "count": 1677722202,
+        "volumes": 6588123
+    },
+    {
+        "year": 1836,
+        "count": 1732058163,
+        "volumes": 6749859
+    },
+    {
+        "year": 1837,
+        "count": 1719923042,
+        "volumes": 6566081
+    },
+    {
+        "year": 1838,
+        "count": 1705076840,
+        "volumes": 6524982
+    },
+    {
+        "year": 1839,
+        "count": 1903209404,
+        "volumes": 7376352
+    },
+    {
+        "year": 1840,
+        "count": 1844712585,
+        "volumes": 7199027
+    },
+    {
+        "year": 1841,
+        "count": 1871677103,
+        "volumes": 6902825
+    },
+    {
+        "year": 1842,
+        "count": 1885120572,
+        "volumes": 6884151
+    },
+    {
+        "year": 1843,
+        "count": 1889995674,
+        "volumes": 6839031
+    },
+    {
+        "year": 1844,
+        "count": 2041469137,
+        "volumes": 7442524
+    },
+    {
+        "year": 1845,
+        "count": 2349027490,
+        "volumes": 8241316
+    },
+    {
+        "year": 1846,
+        "count": 2178546276,
+        "volumes": 8063737
+    },
+    {
+        "year": 1847,
+        "count": 2139128828,
+        "volumes": 7971275
+    },
+    {
+        "year": 1848,
+        "count": 2140542147,
+        "volumes": 8030913
+    },
+    {
+        "year": 1849,
+        "count": 2190371848,
+        "volumes": 8207074
+    },
+    {
+        "year": 1850,
+        "count": 2357166150,
+        "volumes": 8833997
+    },
+    {
+        "year": 1851,
+        "count": 2612236551,
+        "volumes": 9781987
+    },
+    {
+        "year": 1852,
+        "count": 2658324669,
+        "volumes": 9967883
+    },
+    {
+        "year": 1853,
+        "count": 3009425178,
+        "volumes": 11377810
+    },
+    {
+        "year": 1854,
+        "count": 3076921567,
+        "volumes": 11689544
+    },
+    {
+        "year": 1855,
+        "count": 2825409463,
+        "volumes": 10741173
+    },
+    {
+        "year": 1856,
+        "count": 2960196696,
+        "volumes": 11354995
+    },
+    {
+        "year": 1857,
+        "count": 2828750041,
+        "volumes": 10994342
+    },
+    {
+        "year": 1858,
+        "count": 2720997934,
+        "volumes": 10352056
+    },
+    {
+        "year": 1859,
+        "count": 2874458433,
+        "volumes": 11031987
+    },
+    {
+        "year": 1860,
+        "count": 2967891308,
+        "volumes": 11565083
+    },
+    {
+        "year": 1861,
+        "count": 2480007318,
+        "volumes": 9452236
+    },
+    {
+        "year": 1862,
+        "count": 2344634412,
+        "volumes": 8795040
+    },
+    {
+        "year": 1863,
+        "count": 2342104195,
+        "volumes": 8755397
+    },
+    {
+        "year": 1864,
+        "count": 2529041058,
+        "volumes": 9823006
+    },
+    {
+        "year": 1865,
+        "count": 2563919231,
+        "volumes": 9982453
+    },
+    {
+        "year": 1866,
+        "count": 2992532317,
+        "volumes": 11249293
+    },
+    {
+        "year": 1867,
+        "count": 3033374449,
+        "volumes": 11281472
+    },
+    {
+        "year": 1868,
+        "count": 3230121657,
+        "volumes": 12043474
+    },
+    {
+        "year": 1869,
+        "count": 3229167472,
+        "volumes": 12280466
+    },
+    {
+        "year": 1870,
+        "count": 3305925146,
+        "volumes": 12238244
+    },
+    {
+        "year": 1871,
+        "count": 3187943271,
+        "volumes": 12172646
+    },
+    {
+        "year": 1872,
+        "count": 3608789676,
+        "volumes": 13346375
+    },
+    {
+        "year": 1873,
+        "count": 3382318166,
+        "volumes": 12933157
+    },
+    {
+        "year": 1874,
+        "count": 3520724718,
+        "volumes": 13293667
+    },
+    {
+        "year": 1875,
+        "count": 3488428991,
+        "volumes": 13271469
+    },
+    {
+        "year": 1876,
+        "count": 3662181645,
+        "volumes": 13934673
+    },
+    {
+        "year": 1877,
+        "count": 3594730182,
+        "volumes": 13401744
+    },
+    {
+        "year": 1878,
+        "count": 3561187661,
+        "volumes": 13357678
+    },
+    {
+        "year": 1879,
+        "count": 3726839151,
+        "volumes": 13931338
+    },
+    {
+        "year": 1880,
+        "count": 4087276400,
+        "volumes": 15492131
+    },
+    {
+        "year": 1881,
+        "count": 3937046464,
+        "volumes": 15106217
+    },
+    {
+        "year": 1882,
+        "count": 4091708201,
+        "volumes": 15411475
+    },
+    {
+        "year": 1883,
+        "count": 4343920556,
+        "volumes": 16890356
+    },
+    {
+        "year": 1884,
+        "count": 4525723077,
+        "volumes": 17211627
+    },
+    {
+        "year": 1885,
+        "count": 4407867864,
+        "volumes": 16884774
+    },
+    {
+        "year": 1886,
+        "count": 4447243407,
+        "volumes": 16478945
+    },
+    {
+        "year": 1887,
+        "count": 4682166385,
+        "volumes": 17768610
+    },
+    {
+        "year": 1888,
+        "count": 4922157676,
+        "volumes": 18500888
+    },
+    {
+        "year": 1889,
+        "count": 5178119234,
+        "volumes": 19442397
+    },
+    {
+        "year": 1890,
+        "count": 5169621087,
+        "volumes": 19639081
+    },
+    {
+        "year": 1891,
+        "count": 5290448454,
+        "volumes": 20228205
+    },
+    {
+        "year": 1892,
+        "count": 5458626333,
+        "volumes": 21537880
+    },
+    {
+        "year": 1893,
+        "count": 5647489544,
+        "volumes": 22103621
+    },
+    {
+        "year": 1894,
+        "count": 5579256387,
+        "volumes": 21745157
+    },
+    {
+        "year": 1895,
+        "count": 6357235465,
+        "volumes": 25000360
+    },
+    {
+        "year": 1896,
+        "count": 6194569941,
+        "volumes": 25041687
+    },
+    {
+        "year": 1897,
+        "count": 6466531433,
+        "volumes": 25692208
+    },
+    {
+        "year": 1898,
+        "count": 6747708711,
+        "volumes": 27040823
+    },
+    {
+        "year": 1899,
+        "count": 7371207598,
+        "volumes": 30396378
+    },
+    {
+        "year": 1900,
+        "count": 7690102363,
+        "volumes": 31951842
+    },
+    {
+        "year": 1901,
+        "count": 7919714329,
+        "volumes": 32130708
+    },
+    {
+        "year": 1902,
+        "count": 7843300912,
+        "volumes": 32124921
+    },
+    {
+        "year": 1903,
+        "count": 7905498667,
+        "volumes": 32097902
+    },
+    {
+        "year": 1904,
+        "count": 8336334028,
+        "volumes": 34597212
+    },
+    {
+        "year": 1905,
+        "count": 8296824940,
+        "volumes": 33552970
+    },
+    {
+        "year": 1906,
+        "count": 8962660198,
+        "volumes": 36820517
+    },
+    {
+        "year": 1907,
+        "count": 9010942874,
+        "volumes": 36557727
+    },
+    {
+        "year": 1908,
+        "count": 9369609167,
+        "volumes": 37517183
+    },
+    {
+        "year": 1909,
+        "count": 9207687525,
+        "volumes": 37244577
+    },
+    {
+        "year": 1910,
+        "count": 9751225026,
+        "volumes": 38771630
+    },
+    {
+        "year": 1911,
+        "count": 10408948240,
+        "volumes": 40528017
+    },
+    {
+        "year": 1912,
+        "count": 10366233017,
+        "volumes": 41610122
+    },
+    {
+        "year": 1913,
+        "count": 10371590489,
+        "volumes": 41260444
+    },
+    {
+        "year": 1914,
+        "count": 10220191474,
+        "volumes": 40411387
+    },
+    {
+        "year": 1915,
+        "count": 9910925147,
+        "volumes": 38961690
+    },
+    {
+        "year": 1916,
+        "count": 9991463923,
+        "volumes": 38902468
+    },
+    {
+        "year": 1917,
+        "count": 9773697090,
+        "volumes": 38139784
+    },
+    {
+        "year": 1918,
+        "count": 8962897797,
+        "volumes": 34288964
+    },
+    {
+        "year": 1919,
+        "count": 9490994057,
+        "volumes": 36590475
+    },
+    {
+        "year": 1920,
+        "count": 10229118205,
+        "volumes": 40090832
+    },
+    {
+        "year": 1921,
+        "count": 9934267452,
+        "volumes": 37750129
+    },
+    {
+        "year": 1922,
+        "count": 10056292354,
+        "volumes": 38365053
+    },
+    {
+        "year": 1923,
+        "count": 6157196328,
+        "volumes": 25515607
+    },
+    {
+        "year": 1924,
+        "count": 5081784655,
+        "volumes": 21180733
+    },
+    {
+        "year": 1925,
+        "count": 5915092027,
+        "volumes": 25104909
+    },
+    {
+        "year": 1926,
+        "count": 5818211913,
+        "volumes": 23948067
+    },
+    {
+        "year": 1927,
+        "count": 5849639615,
+        "volumes": 24993151
+    },
+    {
+        "year": 1928,
+        "count": 6209782737,
+        "volumes": 25671499
+    },
+    {
+        "year": 1929,
+        "count": 6232053568,
+        "volumes": 26075296
+    },
+    {
+        "year": 1930,
+        "count": 6282643991,
+        "volumes": 26341517
+    },
+    {
+        "year": 1931,
+        "count": 6263058649,
+        "volumes": 26227291
+    },
+    {
+        "year": 1932,
+        "count": 5649698994,
+        "volumes": 23339219
+    },
+    {
+        "year": 1933,
+        "count": 5246816706,
+        "volumes": 21922278
+    },
+    {
+        "year": 1934,
+        "count": 5445701412,
+        "volumes": 22468267
+    },
+    {
+        "year": 1935,
+        "count": 6042196429,
+        "volumes": 25060774
+    },
+    {
+        "year": 1936,
+        "count": 6166364356,
+        "volumes": 25463296
+    },
+    {
+        "year": 1937,
+        "count": 6358284945,
+        "volumes": 26217310
+    },
+    {
+        "year": 1938,
+        "count": 6428539630,
+        "volumes": 26713419
+    },
+    {
+        "year": 1939,
+        "count": 6823049937,
+        "volumes": 27942867
+    },
+    {
+        "year": 1940,
+        "count": 6365497339,
+        "volumes": 25906701
+    },
+    {
+        "year": 1941,
+        "count": 6567465105,
+        "volumes": 26167784
+    },
+    {
+        "year": 1942,
+        "count": 5738611742,
+        "volumes": 23142263
+    },
+    {
+        "year": 1943,
+        "count": 5538545063,
+        "volumes": 21831718
+    },
+    {
+        "year": 1944,
+        "count": 5180005535,
+        "volumes": 20207111
+    },
+    {
+        "year": 1945,
+        "count": 5735381437,
+        "volumes": 22248317
+    },
+    {
+        "year": 1946,
+        "count": 6658974027,
+        "volumes": 26318500
+    },
+    {
+        "year": 1947,
+        "count": 7530162538,
+        "volumes": 29996184
+    },
+    {
+        "year": 1948,
+        "count": 7611164286,
+        "volumes": 30323842
+    },
+    {
+        "year": 1949,
+        "count": 8632840415,
+        "volumes": 34060801
+    },
+    {
+        "year": 1950,
+        "count": 8628214793,
+        "volumes": 34090824
+    },
+    {
+        "year": 1951,
+        "count": 8354218817,
+        "volumes": 32977879
+    },
+    {
+        "year": 1952,
+        "count": 8400315747,
+        "volumes": 32907627
+    },
+    {
+        "year": 1953,
+        "count": 8443106484,
+        "volumes": 33378337
+    },
+    {
+        "year": 1954,
+        "count": 8632321831,
+        "volumes": 34073227
+    },
+    {
+        "year": 1955,
+        "count": 9108493470,
+        "volumes": 36413990
+    },
+    {
+        "year": 1956,
+        "count": 9105423697,
+        "volumes": 36449710
+    },
+    {
+        "year": 1957,
+        "count": 9841387731,
+        "volumes": 39946877
+    },
+    {
+        "year": 1958,
+        "count": 9856124337,
+        "volumes": 39913444
+    },
+    {
+        "year": 1959,
+        "count": 10607148619,
+        "volumes": 43052791
+    },
+    {
+        "year": 1960,
+        "count": 11209998716,
+        "volumes": 45869745
+    },
+    {
+        "year": 1961,
+        "count": 12002978698,
+        "volumes": 49138032
+    },
+    {
+        "year": 1962,
+        "count": 12649009160,
+        "volumes": 51878420
+    },
+    {
+        "year": 1963,
+        "count": 13492540723,
+        "volumes": 55266400
+    },
+    {
+        "year": 1964,
+        "count": 12692129446,
+        "volumes": 52572538
+    },
+    {
+        "year": 1965,
+        "count": 14003191695,
+        "volumes": 57751015
+    },
+    {
+        "year": 1966,
+        "count": 14424396178,
+        "volumes": 59455916
+    },
+    {
+        "year": 1967,
+        "count": 15884823179,
+        "volumes": 65219302
+    },
+    {
+        "year": 1968,
+        "count": 16205992078,
+        "volumes": 66690598
+    },
+    {
+        "year": 1969,
+        "count": 16246557922,
+        "volumes": 67021992
+    },
+    {
+        "year": 1970,
+        "count": 16151761039,
+        "volumes": 67038519
+    },
+    {
+        "year": 1971,
+        "count": 16130128209,
+        "volumes": 66081756
+    },
+    {
+        "year": 1972,
+        "count": 15913886442,
+        "volumes": 66170865
+    },
+    {
+        "year": 1973,
+        "count": 16290209654,
+        "volumes": 66417413
+    },
+    {
+        "year": 1974,
+        "count": 15960086966,
+        "volumes": 65569538
+    },
+    {
+        "year": 1975,
+        "count": 16428962227,
+        "volumes": 67540204
+    },
+    {
+        "year": 1976,
+        "count": 17307422521,
+        "volumes": 70527983
+    },
+    {
+        "year": 1977,
+        "count": 17533854820,
+        "volumes": 71585180
+    },
+    {
+        "year": 1978,
+        "count": 17616023832,
+        "volumes": 71688421
+    },
+    {
+        "year": 1979,
+        "count": 17776191417,
+        "volumes": 72105695
+    },
+    {
+        "year": 1980,
+        "count": 17798383489,
+        "volumes": 72222126
+    },
+    {
+        "year": 1981,
+        "count": 17507156133,
+        "volumes": 70239958
+    },
+    {
+        "year": 1982,
+        "count": 17576575213,
+        "volumes": 69728029
+    },
+    {
+        "year": 1983,
+        "count": 18228951629,
+        "volumes": 72096253
+    },
+    {
+        "year": 1984,
+        "count": 18723579852,
+        "volumes": 74385453
+    },
+    {
+        "year": 1985,
+        "count": 19275077955,
+        "volumes": 76592283
+    },
+    {
+        "year": 1986,
+        "count": 19298483453,
+        "volumes": 76768676
+    },
+    {
+        "year": 1987,
+        "count": 19434777323,
+        "volumes": 77407329
+    },
+    {
+        "year": 1988,
+        "count": 19747810475,
+        "volumes": 79280428
+    },
+    {
+        "year": 1989,
+        "count": 20678295067,
+        "volumes": 81988095
+    },
+    {
+        "year": 1990,
+        "count": 21361919207,
+        "volumes": 85126698
+    },
+    {
+        "year": 1991,
+        "count": 20610114259,
+        "volumes": 82189302
+    },
+    {
+        "year": 1992,
+        "count": 21475781604,
+        "volumes": 85174399
+    },
+    {
+        "year": 1993,
+        "count": 21458199225,
+        "volumes": 84344416
+    },
+    {
+        "year": 1994,
+        "count": 21746278607,
+        "volumes": 86108039
+    },
+    {
+        "year": 1995,
+        "count": 22453532751,
+        "volumes": 87950808
+    },
+    {
+        "year": 1996,
+        "count": 22178105872,
+        "volumes": 88819053
+    },
+    {
+        "year": 1997,
+        "count": 21967443546,
+        "volumes": 89192180
+    },
+    {
+        "year": 1998,
+        "count": 22366400795,
+        "volumes": 91067115
+    },
+    {
+        "year": 1999,
+        "count": 22668397698,
+        "volumes": 93076234
+    },
+    {
+        "year": 2000,
+        "count": 24833816292,
+        "volumes": 103641958
+    },
+    {
+        "year": 2001,
+        "count": 24725233628,
+        "volumes": 103286549
+    },
+    {
+        "year": 2002,
+        "count": 26341641132,
+        "volumes": 112015877
+    },
+    {
+        "year": 2003,
+        "count": 27512584645,
+        "volumes": 118361089
+    },
+    {
+        "year": 2004,
+        "count": 28172894637,
+        "volumes": 122494978
+    },
+    {
+        "year": 2005,
+        "count": 26609986084,
+        "volumes": 116969969
+    },
+    {
+        "year": 2006,
+        "count": 27695491774,
+        "volumes": 123316939
+    },
+    {
+        "year": 2007,
+        "count": 28307904288,
+        "volumes": 127605642
+    },
+    {
+        "year": 2008,
+        "count": 28752030034,
+        "volumes": 135421849
+    },
+    {
+        "year": 2009,
+        "count": 27757725357,
+        "volumes": 135352996
+    },
+    {
+        "year": 2010,
+        "count": 26616892238,
+        "volumes": 128432406
+    },
+    {
+        "year": 2011,
+        "count": 26999620709,
+        "volumes": 131012627
+    },
+    {
+        "year": 2012,
+        "count": 34434366368,
+        "volumes": 167611345
+    },
+    {
+        "year": 2013,
+        "count": 34895153509,
+        "volumes": 166166929
+    },
+    {
+        "year": 2014,
+        "count": 30772279958,
+        "volumes": 150297155
+    },
+    {
+        "year": 2015,
+        "count": 26752986914,
+        "volumes": 132432798
+    },
+    {
+        "year": 2016,
+        "count": 26697166061,
+        "volumes": 129083200
+    },
+    {
+        "year": 2017,
+        "count": 27495000308,
+        "volumes": 136650069
+    },
+    {
+        "year": 2018,
+        "count": 26305614574,
+        "volumes": 137064469
+    },
+    {
+        "year": 2019,
+        "count": 22826152232,
+        "volumes": 121332926
+    }
+]
