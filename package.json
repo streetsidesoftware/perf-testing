@@ -15,7 +15,7 @@
     "build": "tsc -p .",
     "build:readme": "pnpm build:readme:help && pnpm build:readme:example && pnpm build:readme:inject && prettier -w README.md",
     "build:readme:help": "./bin.mjs --help > static/help.txt",
-    "build:readme:example": "./bin.mjs \"*\" > static/example.txt",
+    "build:readme:example": "./bin.mjs map > static/example.txt",
     "build:readme:inject": "inject-markdown README.md",
     "watch": "tsc -p . --watch",
     "coverage": "vitest run --coverage",

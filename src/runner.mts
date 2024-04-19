@@ -67,9 +67,7 @@ interface ProgressReporting {
     testStart?(name: string): void;
     testEnd?(result: TestResult): void;
     testIteration?(name: string, iteration: number, duration: number): void;
-    log?: typeof console.log;
     error?: typeof console.error;
-    stderr?: typeof process.stderr;
     stdout?: typeof process.stdout;
     spinner?: Ora;
 }
@@ -81,13 +79,13 @@ export async function runTests(
     testWrapperFn: (context: RunnerContext) => void | Promise<void>,
     progress?: ProgressReporting,
 ): Promise<RunnerResult> {
-    const log = progress?.log || console.log;
-    const stderr = progress?.stderr || process.stderr;
-    const spinner = progress?.spinner || ora({ stream: stderr });
+    const stdout = progress?.stdout || process.stdout;
+    const spinner = progress?.spinner || ora({ stream: stdout });
+    const log = (msg: string) => stdout.write(msg + '\n');
 
     let nameWidth = 0;
 
-    const reportTestStart = progress?.testStart ?? ((name: string) => spinner.start(name));
+    const reportTestStart = progress?.testStart ?? ((name: string) => stdout.isTTY && spinner.start(name));
     const reportTestEnd = (result: TestResult) => {
         if (progress?.testEnd) {
             if (spinner.isSpinning) {
@@ -96,34 +94,19 @@ export async function runTests(
             return progress.testEnd(result);
         }
 
-        const { name, duration, iterations, sd } = result;
-
-        const min = sd.min;
-        const max = sd.max;
-        const p95 = sd.ok ? sd.p95 : NaN;
-        const mean = sd.ok ? sd.mean : NaN;
-        const ops = (iterations * 1000) / duration;
+        const msg = formatResult(result, nameWidth);
 
         if (spinner.isSpinning) {
             if (result.error) {
-                spinner.fail(`${name} ${duration.toFixed(2)}ms`);
-                log('Error: %o', result.error);
+                spinner.fail(msg);
             } else {
-                spinner.succeed(
-                    `${name.padEnd(nameWidth)}: ` +
-                        `ops: ${ops.toFixed(2).padStart(8)} ` +
-                        `cnt: ${iterations.toFixed(0).padStart(6)} ` +
-                        `mean: ${mean.toPrecision(5).padStart(8)} ` +
-                        `p95: ${p95.toPrecision(5).padStart(8)} ` +
-                        `min/max: ${min.toPrecision(5).padStart(8)}/${max.toPrecision(5).padStart(8)} ` +
-                        `${duration.toFixed(2)}ms `,
-                );
+                spinner.succeed(msg);
             }
         } else {
             if (result.error) {
-                log(`Test: ${name} finished in ${duration}ms with error: %o`, result.error);
+                log(`X ${msg}`);
             } else {
-                log(`Test: ${name} finished in ${duration}ms`);
+                log(`✔ ${msg}`);
             }
         }
     };
@@ -246,6 +229,31 @@ export async function runTests(
 
 function toError(e: unknown): Error {
     return e instanceof Error ? e : new Error(String(e));
+}
+
+function formatResult(result: TestResult, nameWidth: number): string {
+    const { name, duration, iterations, sd } = result;
+
+    const min = sd.min;
+    const max = sd.max;
+    const p95 = sd.ok ? sd.p95 : NaN;
+    const mean = sd.ok ? sd.mean : NaN;
+    const ops = (iterations * 1000) / duration;
+
+    if (result.error) {
+        return `${name.padEnd(nameWidth)}: ${duration.toFixed(2)}ms\n` + `Error: ${result.error}`;
+    }
+
+    const msg =
+        `${name.padEnd(nameWidth)}: ` +
+        `ops: ${ops.toFixed(2).padStart(8)} ` +
+        `cnt: ${iterations.toFixed(0).padStart(6)} ` +
+        `mean: ${mean.toPrecision(5).padStart(8)} ` +
+        `p95: ${p95.toPrecision(5).padStart(8)} ` +
+        `min/max: ${min.toPrecision(5).padStart(8)}/${max.toPrecision(5).padStart(8)} ` +
+        `${duration.toFixed(2)}ms `;
+
+    return msg;
 }
 
 // function wait(time: number): Promise<void> {
