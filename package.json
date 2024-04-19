@@ -69,7 +69,9 @@
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^12.0.0",
-    "globby": "^14.0.1"
+    "globby": "^14.0.1",
+    "lorem-ipsum": "^2.0.8",
+    "ora": "^8.0.1"
   },
   "files": [
     "bin.mjs",
