@@ -1,70 +1,85 @@
-import { promises as fs } from 'node:fs';
+import './perf-suites/measureAnonymous.mjs';
+import './perf-suites/measureMap.mjs';
+import './perf-suites/measureSearch.mjs';
+
 import { fileURLToPath } from 'node:url';
 
+import asTable from 'as-table';
 import chalk from 'chalk';
 import { Argument, Command, program as defaultCommand } from 'commander';
 import * as path from 'path';
 
-import { measureAnonymous } from './measureAnonymous.mjs';
-import { measureMap } from './measureMap.mjs';
-import { measureSearch } from './measureSearch.mjs';
+import { getActiveSuites, PerfSuite } from './perfSuite.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-async function version(): Promise<string> {
-    const pathPackageJson = path.join(__dirname, '../package.json');
-    const packageJson = JSON.parse(await fs.readFile(pathPackageJson, 'utf8'));
-    return (typeof packageJson === 'object' && packageJson?.version) || '0.0.0';
-}
-
-const knownTests = {
-    search: measureSearch,
-    anonymous: measureAnonymous,
-    map: measureMap,
-};
-
-const allTests = {
-    search: measureSearch,
-    anonymous: measureAnonymous,
-    map: measureMap,
-    all: async (timeout?: number) => {
-        for (const test of Object.values(knownTests)) {
-            await test(timeout);
-        }
-    },
-};
-
 interface AppOptions {
     timeout?: number;
+    all?: boolean;
 }
 
 export async function app(program = defaultCommand): Promise<Command> {
-    const argument = new Argument('[test-methods...]', 'list of test methods to run');
-    argument.choices(Object.keys(allTests));
-    argument.default(['all']);
+    const suites = getActiveSuites();
+    const setOfSuiteNames = new Set(suites.map((suite) => suite.name));
+    const suitesNames = [...setOfSuiteNames, 'all'];
+
+    const argument = new Argument('[test-suite...]', 'list of test suites to run');
+    argument.choices(suitesNames);
     argument.variadic = true;
 
     program
         .name('perf runner')
         .addArgument(argument)
         .description('Run performance tests.')
+        .option('-a, --all', 'run all tests', false)
         .option('-t, --timeout <timeout>', 'timeout for each test', (v) => Number(v), 1000)
-        .version(await version())
-        .action(async (methods: string[], options: AppOptions) => {
+        .action(async (suiteNamesToRun: string[], options: AppOptions) => {
             // console.log('Options: %o', optionsCli);
             const timeout = options.timeout || 1000;
-            const tests = Object.entries(allTests);
-            for (const method of methods) {
-                const test = tests.find(([key]) => key === method);
-                if (!test) {
-                    console.log(chalk.red(`Unknown test method: ${method}`));
-                    continue;
+            const suitesRun = new Set<PerfSuite>();
+
+            async function _runSuite(suites: PerfSuite[]) {
+                for (const suite of suites) {
+                    if (suitesRun.has(suite)) continue;
+                    suitesRun.add(suite);
+                    console.log(chalk.green(`Running Perf Suite: ${suite.name}`));
+                    await suite.setTimeout(timeout).runTests();
                 }
-                const [key, fn] = test;
-                console.log(chalk.green(`Running test: ${key}`));
-                await fn(timeout);
             }
+
+            async function runSuite(name: string) {
+                if (name === 'all') {
+                    await _runSuite(suites);
+                    return;
+                }
+                const matching = suites.filter((suite) => suite.name === name);
+                if (!matching.length) {
+                    console.log(chalk.red(`Unknown test method: ${name}`));
+                    return;
+                }
+                await _runSuite(matching);
+            }
+
+            for (const name of suiteNamesToRun) {
+                await runSuite(name);
+            }
+
+            if (!suitesRun.size) {
+                console.log(chalk.red('No suites to run.'));
+                console.log(chalk.yellow('Available suites:'));
+                const width = process.stdout.columns || 80;
+                const table = asTable.configure({ maxTotalWidth: width - 2 })(
+                    suites.map((suite) => ({ Suite: suite.name, Description: suite.description })),
+                );
+                console.log(
+                    table
+                        .split('\n')
+                        .map((line) => `  ${line}`)
+                        .join('\n'),
+                );
+            }
+
             console.log(chalk.green('done.'));
         });
 

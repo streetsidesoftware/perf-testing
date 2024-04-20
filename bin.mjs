@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { run } from './dist/tools/appNGram.mjs';
+import { run } from './dist/app.mjs';
 
 run();
