@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 import chalk from 'chalk';
-import { Command, program as defaultCommand } from 'commander';
+import { Command, Option, program as defaultCommand } from 'commander';
 
 import { downloadNGrams, fetchTotals } from './fetch-n-gram.mjs';
 
@@ -42,6 +42,7 @@ function commandDownloadTotals(): Command {
 function commandDownload(): Command {
     interface Options {
         output?: string;
+        nGram: string;
         all?: boolean;
     }
 
@@ -52,6 +53,14 @@ function commandDownload(): Command {
         .arguments('[prefixes...]')
         .option('-o, --output <file>', 'output file', defaultOutput)
         .option('-a, --all', 'download all prefixes')
+        .addOption(
+            new Option(
+                '-n, --ngram <n>',
+                'n-gram number. (1 = frequency of individual words, 2 = frequency of word pairs)',
+            )
+                .default('1')
+                .hideHelp(true), // Not ready yet
+        )
         .action(async (prefixes, options: Options, _commander: Command) => {
             console.log(chalk.green('Downloading N-Gram ...'));
             const baseFilename = options.output ?? defaultOutput;
@@ -59,9 +68,10 @@ function commandDownload(): Command {
                 console.log(chalk.red('No prefixes specified.'));
                 return;
             }
+            const nGram = Number.parseInt(options.nGram || '1', 10) || 1;
             for await (const file of downloadNGrams(options.all ? {} : { prefixes })) {
                 console.log('Saving %s...', file.prefix);
-                const filename = calcFilename(baseFilename, file.prefix);
+                const filename = calcFilename(baseFilename, nGram, file.prefix);
                 await fs.mkdir(path.dirname(filename), { recursive: true });
                 await fs.writeFile(filename, file.lines);
             }
@@ -70,10 +80,10 @@ function commandDownload(): Command {
 
     return command;
 
-    function calcFilename(baseFilename: string, prefix: string): string {
-        const ext = path.extname(baseFilename);
+    function calcFilename(baseFilename: string, n: number, prefix: string): string {
+        const ext = path.extname(baseFilename) || '.tsv';
         const filename = path.basename(baseFilename, ext);
-        return path.join(path.dirname(baseFilename), filename + '.' + prefix + (ext || '.tsv'));
+        return path.join(path.dirname(baseFilename), `${filename}.${n}.${prefix}${ext}`);
     }
 }
 

@@ -190,12 +190,9 @@ export async function* downloadNGrams(options: DownLoadNGramsOptions): AsyncIter
     for (const prefix of prefixes) {
         console.log('Downloading %s...', prefix);
         const wordFreq = new Map<string, number>();
-        let collisions = 0;
         for await (const entry of pipeAsync(fetchNGramLines(prefix, opts), acc)) {
             const existing = wordFreq.get(entry.word);
             if (existing) {
-                collisions++;
-                // console.log('Collision: %s %d + %d', entry.word, existing, entry.freq);
                 entry.freq += existing;
             }
             wordFreq.set(entry.word, entry.freq);
@@ -203,7 +200,7 @@ export async function* downloadNGrams(options: DownLoadNGramsOptions): AsyncIter
 
         const normalized = cleanupWordFreq(wordFreq);
 
-        console.log({ found: wordFreq.size, normalized: normalized.size, collisions: collisions });
+        console.log({ found: wordFreq.size, normalized: normalized.size });
 
         yield { prefix, lines: mapToLines(normalized) };
     }
