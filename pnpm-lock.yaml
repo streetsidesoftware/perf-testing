@@ -17,6 +17,9 @@ dependencies:
   commander:
     specifier: ^12.0.0
     version: 12.0.0
+  cspell-trie-lib:
+    specifier: ^8.7.0
+    version: 8.7.0
   globby:
     specifier: ^14.0.1
     version: 14.0.1
@@ -218,7 +221,6 @@ packages:
   /@cspell/cspell-types@8.7.0:
     resolution: {integrity: sha512-Rb+LCE5I9JEb/LE8nSViVSF8z1CWv/z4mPBIG37VMa7aUx2gAQa6gJekNfpY9YZiMzx4Tv3gDujN80ytks4pGA==}
     engines: {node: '>=18'}
-    dev: true
 
   /@cspell/dict-ada@4.0.2:
     resolution: {integrity: sha512-0kENOWQeHjUlfyId/aCM/mKXtkEgV0Zu2RhUXCBr4hHo9F9vph+Uu8Ww2b0i5a4ZixoIkudGA+eJvyxrG1jUpA==}
@@ -1605,7 +1607,6 @@ packages:
       '@cspell/cspell-pipe': 8.7.0
       '@cspell/cspell-types': 8.7.0
       gensequence: 7.0.0
-    dev: true
 
   /cspell@8.7.0:
     resolution: {integrity: sha512-77nRPgLl240C6FK8RKVKo34lP15Lzp/6bk+SKYJFwUKKXlcgWXDis+Lw4JolA741/JgHtuxmhW1C8P7dCKjJ3w==}
@@ -2349,7 +2350,6 @@ packages:
   /gensequence@7.0.0:
     resolution: {integrity: sha512-47Frx13aZh01afHJTB3zTtKIlFI6vWY+MYCN9Qpew6i52rfKjnhCF/l1YlC8UmEMvvntZZ6z4PiCcmyuedR2aQ==}
     engines: {node: '>=18'}
-    dev: true
 
   /get-east-asian-width@1.2.0:
     resolution: {integrity: sha512-2nk+7SIVb14QrgXFHcm84tD4bKQz0RxPuMT8Ag5KPOq7J5fEmAg0UbXdTOSHqNuHSU28k55qnceesxXRZGzKWA==}

@@ -1,6 +1,7 @@
-import './perf-suites/measureAnonymous.mjs';
-import './perf-suites/measureMap.mjs';
-import './perf-suites/measureSearch.mjs';
+import './perf-suites/measureAnonymous.perf.mjs';
+import './perf-suites/measureMap.perf.mjs';
+import './perf-suites/measureSearch.perf.mjs';
+import './perf-suites/trie.perf.mjs';
 
 import { fileURLToPath } from 'node:url';
 
@@ -15,17 +16,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 interface AppOptions {
+    repeat?: number;
     timeout?: number;
     all?: boolean;
 }
 
 export async function app(program = defaultCommand): Promise<Command> {
-    const suites = getActiveSuites();
-    const setOfSuiteNames = new Set(suites.map((suite) => suite.name));
-    const suitesNames = [...setOfSuiteNames, 'all'];
-
     const argument = new Argument('[test-suite...]', 'list of test suites to run');
-    argument.choices(suitesNames);
     argument.variadic = true;
 
     program
@@ -33,39 +30,25 @@ export async function app(program = defaultCommand): Promise<Command> {
         .addArgument(argument)
         .description('Run performance tests.')
         .option('-a, --all', 'run all tests', false)
+        .option('--repeat <count>', 'repeat the tests', (v) => Number(v), 1)
         .option('-t, --timeout <timeout>', 'timeout for each test', (v) => Number(v), 1000)
         .action(async (suiteNamesToRun: string[], options: AppOptions) => {
             // console.log('Options: %o', optionsCli);
-            const timeout = options.timeout || 1000;
-            const suitesRun = new Set<PerfSuite>();
+            const suites = getActiveSuites();
 
-            async function _runSuite(suites: PerfSuite[]) {
-                for (const suite of suites) {
-                    if (suitesRun.has(suite)) continue;
-                    suitesRun.add(suite);
-                    console.log(chalk.green(`Running Perf Suite: ${suite.name}`));
-                    await suite.setTimeout(timeout).runTests();
+            let numSuitesRun = 0;
+            let showRepeatMsg = false;
+
+            for (let repeat = options.repeat || 1; repeat > 0; repeat--) {
+                if (showRepeatMsg) {
+                    console.log(chalk.yellow(`Repeating tests: ${repeat} more time${repeat > 1 ? 's' : ''}.`));
                 }
+                numSuitesRun = await runTestSuites(suites, suiteNamesToRun, options);
+                if (!numSuitesRun) break;
+                showRepeatMsg = true;
             }
 
-            async function runSuite(name: string) {
-                if (name === 'all') {
-                    await _runSuite(suites);
-                    return;
-                }
-                const matching = suites.filter((suite) => suite.name === name);
-                if (!matching.length) {
-                    console.log(chalk.red(`Unknown test method: ${name}`));
-                    return;
-                }
-                await _runSuite(matching);
-            }
-
-            for (const name of suiteNamesToRun) {
-                await runSuite(name);
-            }
-
-            if (!suitesRun.size) {
+            if (!numSuitesRun) {
                 console.log(chalk.red('No suites to run.'));
                 console.log(chalk.yellow('Available suites:'));
                 const width = process.stdout.columns || 80;
@@ -85,6 +68,39 @@ export async function app(program = defaultCommand): Promise<Command> {
 
     program.showHelpAfterError();
     return program;
+}
+
+async function runTestSuites(suites: PerfSuite[], suiteNamesToRun: string[], options: AppOptions): Promise<number> {
+    const timeout = options.timeout || 1000;
+    const suitesRun = new Set<PerfSuite>();
+
+    async function _runSuite(suites: PerfSuite[]) {
+        for (const suite of suites) {
+            if (suitesRun.has(suite)) continue;
+            suitesRun.add(suite);
+            console.log(chalk.green(`Running Perf Suite: ${suite.name}`));
+            await suite.setTimeout(timeout).runTests();
+        }
+    }
+
+    async function runSuite(name: string) {
+        if (name === 'all') {
+            await _runSuite(suites);
+            return;
+        }
+        const matching = suites.filter((suite) => suite.name.toLowerCase().startsWith(name.toLowerCase()));
+        if (!matching.length) {
+            console.log(chalk.red(`Unknown test method: ${name}`));
+            return;
+        }
+        await _runSuite(matching);
+    }
+
+    for (const name of suiteNamesToRun) {
+        await runSuite(name);
+    }
+
+    return suitesRun.size;
 }
 
 export async function run(argv?: string[], program?: Command): Promise<void> {

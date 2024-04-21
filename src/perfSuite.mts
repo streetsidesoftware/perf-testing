@@ -5,39 +5,68 @@ import ora from 'ora';
 
 import { createRunningStdDev, RunningStdDev } from './sd.mjs';
 
-export type PerfTestFn = (name: string, method: () => unknown | Promise<unknown>, timeout?: number) => void;
+export type PreparedPerfTestFn<T> = (
+    name: string,
+    method: (data: T) => unknown | Promise<unknown>,
+    timeout?: number,
+) => void;
+
+export interface PerfTestFn {
+    (name: string, method: () => unknown | Promise<unknown>, timeout?: number): void;
+}
+
+export interface Prepared<T> {
+    test: PreparedPerfTestFn<T>;
+}
 
 export type UserFn = () => unknown | Promise<unknown>;
 
 export interface RunnerContext {
+    /**
+     * Register a test to be run.
+     */
     test: PerfTestFn;
+
+    /**
+     * Prepare data to be used in a test.
+     * @param prepareFn - A function that returns the data to be used in the test.
+     */
+    prepare<T>(prepareFn: () => T | Promise<T>): Prepared<Awaited<T>>;
+
     /**
      * Register a function to be called after all tests have been run to allow for cleanup.
      * @param fn - The function to run after all tests have been run.
      */
     afterAll: (fn: UserFn) => void;
+
     /**
      * Register a function to be called after each test has been run to allow for cleanup.
      * @param fn - The function to run after each test.
      */
     afterEach: (fn: UserFn) => void;
+
     /**
      * Register a function to be called before all tests have been run to allow for setup.
      * @param fn - The function to run before all tests.
      */
     beforeAll: (fn: UserFn) => void;
+
     /**
      * Register a function to be called before each test has been run to allow for setup.
      * @param fn - The function to run before all tests.
      */
     beforeEach: (fn: UserFn) => void;
+
     timeout: number;
+    /**
+     * Set the amount of time to run the test.
+     * @param timeoutMs - The amount of time in milliseconds to run the test.
+     */
     setTimeout: (timeoutMs: number) => void;
 }
 
 export interface TestResult {
     name: string;
-    isAsync: boolean;
     /** the total amount of time spent in the test. */
     duration: number;
     /** the number of iterations */
@@ -67,23 +96,13 @@ export interface RunnerResult {
     results: TestResult[];
 }
 
-interface TestDef {
+type TestMethod = () => void | Promise<void> | unknown | Promise<unknown>;
+
+interface TestDefinition {
     name: string;
-    method: () => unknown;
-    timeout: number;
-    isAsync: boolean;
+    prepare: () => TestMethod | Promise<TestMethod>;
+    timeout: number | undefined;
 }
-
-interface TestDefinitionSync extends TestDef {
-    method: () => void;
-}
-
-interface TestDefinitionAsync extends TestDef {
-    method: () => void | Promise<void>;
-    isAsync: true;
-}
-
-type TestDefinition = TestDefinitionSync | TestDefinitionAsync;
 
 interface ProgressReporting {
     testStart?(name: string): void;
@@ -242,6 +261,7 @@ async function runTests(suite: PerfSuiteImpl, progress?: ProgressReporting): Pro
 
     const context: RunnerContext = {
         test,
+        prepare,
         beforeAll,
         beforeEach,
         afterAll,
@@ -260,7 +280,30 @@ async function runTests(suite: PerfSuiteImpl, progress?: ProgressReporting): Pro
     const afterAllFns: UserFn[] = [];
 
     function test(name: string, method: () => void, timeout?: number): void {
-        tests.push({ name, method, timeout: timeout ?? context.timeout, isAsync: false });
+        tests.push({ name, prepare: () => method, timeout });
+    }
+
+    function prepare<T>(prepareFn: () => T | Promise<T>): Prepared<Awaited<T>> {
+        let pending: Promise<T> | undefined = undefined;
+
+        function runPrepare(): Promise<T> {
+            return (pending ??= Promise.resolve(prepareFn()));
+        }
+
+        return {
+            test(name, method, timeout) {
+                const fn = async () => {
+                    const data = await runPrepare();
+
+                    return () => method(data);
+                };
+                tests.push({
+                    name,
+                    prepare: fn,
+                    timeout,
+                });
+            },
+        };
     }
 
     function beforeEach(fn: UserFn) {
@@ -280,7 +323,6 @@ async function runTests(suite: PerfSuiteImpl, progress?: ProgressReporting): Pro
     }
 
     async function runTestAsync(test: TestDefinition): Promise<TestResult> {
-        const startTime = performance.now();
         let duration = 0;
         const runs: number[] = [];
         let iterations = 0;
@@ -289,7 +331,7 @@ async function runTests(suite: PerfSuiteImpl, progress?: ProgressReporting): Pro
         let error: Error | undefined;
         let iterationCallbacks = 0;
         const sd = createRunningStdDev();
-        let lastReport = startTime;
+        let startTime = performance.now();
 
         let nextSd = 0;
 
@@ -303,12 +345,18 @@ async function runTests(suite: PerfSuiteImpl, progress?: ProgressReporting): Pro
         }
 
         try {
-            while (performance.now() - startTime < test.timeout && !error) {
+            const method = await test.prepare();
+
+            startTime = performance.now();
+
+            let lastReport = startTime;
+            const timeout = test.timeout || context.timeout;
+            while (performance.now() - startTime < timeout && !error) {
                 await runBeforeEach();
                 const startTime = performance.now();
                 let delta: number;
                 try {
-                    await test.method();
+                    await method();
                     delta = performance.now() - startTime;
                 } catch (e) {
                     error = toError(e);
@@ -337,12 +385,11 @@ async function runTests(suite: PerfSuiteImpl, progress?: ProgressReporting): Pro
 
         return {
             name: test.name,
-            isAsync: false,
             duration,
             iterations,
             runs,
             error,
-            timeout: test.timeout,
+            timeout: test.timeout || context.timeout,
             overhead: performance.now() - startTime - duration,
             iterationCallbacks,
             sd,

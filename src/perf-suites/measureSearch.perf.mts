@@ -1,8 +1,8 @@
 import { loremIpsum } from 'lorem-ipsum';
 
-import { suite } from '../perfSuite.mjs';
 import { SimpleTrie } from '../lib/SimpleTrie.mjs';
 import { Trie } from '../lib/Trie.mjs';
+import { suite } from '../perfSuite.mjs';
 
 const numWords = 10000;
 
@@ -22,7 +22,7 @@ function getData() {
 }
 
 for (const numTerms of termNumber) {
-    suite(`search`, `Search Dictionary, Size of dictionary: ${numTerms}`, async (test) => {
+    suite(`search-${numTerms}`, `Search Dictionary, Size of dictionary: ${numTerms}`, async (test) => {
         const { wordsToSearch, knownWords } = getData();
 
         // test('lorem-ipsum words', () => {
