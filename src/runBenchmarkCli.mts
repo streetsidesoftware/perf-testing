@@ -11,13 +11,6 @@ import { runBenchmarkSuites } from './run.mjs';
 const cwdUrl = pathToFileURL(process.cwd() + '/');
 
 async function run(args: string[]) {
-    interface ParsedOptions {
-        repeat?: string;
-        timeout?: string;
-        test?: string[];
-        suite?: string[];
-    }
-
     const parseConfig = {
         args,
         strict: true,
