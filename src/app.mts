@@ -1,19 +1,9 @@
-import './perf-suites/measureAnonymous.perf.mjs';
-import './perf-suites/measureMap.perf.mjs';
-import './perf-suites/measureSearch.perf.mjs';
-import './perf-suites/trie.perf.mjs';
-
+import { fork } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-import asTable from 'as-table';
 import chalk from 'chalk';
 import { Argument, Command, program as defaultCommand } from 'commander';
-import * as path from 'path';
-
-import { getActiveSuites, PerfSuite } from './perfSuite.mjs';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { globby } from 'globby';
 
 interface AppOptions {
     repeat?: number;
@@ -21,8 +11,13 @@ interface AppOptions {
     all?: boolean;
 }
 
+const urlRunnerCli = new URL('./runBenchmarkCli.mjs', import.meta.url).toString();
+const pathToRunnerCliModule = fileURLToPath(urlRunnerCli);
+
+console.log('args: %o', process.argv);
+
 export async function app(program = defaultCommand): Promise<Command> {
-    const argument = new Argument('[test-suite...]', 'list of test suites to run');
+    const argument = new Argument('[suite...]', 'list of test suites to run');
     argument.variadic = true;
 
     program
@@ -33,35 +28,15 @@ export async function app(program = defaultCommand): Promise<Command> {
         .option('--repeat <count>', 'repeat the tests', (v) => Number(v), 1)
         .option('-t, --timeout <timeout>', 'timeout for each test', (v) => Number(v), 1000)
         .action(async (suiteNamesToRun: string[], options: AppOptions) => {
-            // console.log('Options: %o', optionsCli);
-            const suites = getActiveSuites();
+            const found = await globby(['**/*.perf.{js,mjs,cjs}', '!**/node_modules/**']);
 
-            let numSuitesRun = 0;
-            let showRepeatMsg = false;
+            const files = found.filter(
+                (file) => !suiteNamesToRun.length || suiteNamesToRun.some((name) => file.includes(name)),
+            );
 
-            for (let repeat = options.repeat || 1; repeat > 0; repeat--) {
-                if (showRepeatMsg) {
-                    console.log(chalk.yellow(`Repeating tests: ${repeat} more time${repeat > 1 ? 's' : ''}.`));
-                }
-                numSuitesRun = await runTestSuites(suites, suiteNamesToRun, options);
-                if (!numSuitesRun) break;
-                showRepeatMsg = true;
-            }
+            console.log('%o', { files, found });
 
-            if (!numSuitesRun) {
-                console.log(chalk.red('No suites to run.'));
-                console.log(chalk.yellow('Available suites:'));
-                const width = process.stdout.columns || 80;
-                const table = asTable.configure({ maxTotalWidth: width - 2 })(
-                    suites.map((suite) => ({ Suite: suite.name, Description: suite.description })),
-                );
-                console.log(
-                    table
-                        .split('\n')
-                        .map((line) => `  ${line}`)
-                        .join('\n'),
-                );
-            }
+            await spawnRunners(files, options);
 
             console.log(chalk.green('done.'));
         });
@@ -70,37 +45,58 @@ export async function app(program = defaultCommand): Promise<Command> {
     return program;
 }
 
-async function runTestSuites(suites: PerfSuite[], suiteNamesToRun: string[], options: AppOptions): Promise<number> {
-    const timeout = options.timeout || 1000;
-    const suitesRun = new Set<PerfSuite>();
+const defaultAbortTimeout = 1000 * 60 * 5; // 5 minutes
 
-    async function _runSuite(suites: PerfSuite[]) {
-        for (const suite of suites) {
-            if (suitesRun.has(suite)) continue;
-            suitesRun.add(suite);
-            console.log(chalk.green(`Running Perf Suite: ${suite.name}`));
-            await suite.setTimeout(timeout).runTests();
-        }
+async function spawnRunners(files: string[], options: AppOptions): Promise<void> {
+    const cliOptions: string[] = [];
+
+    if (options.repeat) {
+        cliOptions.push('--repeat', options.repeat.toString());
     }
 
-    async function runSuite(name: string) {
-        if (name === 'all') {
-            await _runSuite(suites);
-            return;
-        }
-        const matching = suites.filter((suite) => suite.name.toLowerCase().startsWith(name.toLowerCase()));
-        if (!matching.length) {
-            console.log(chalk.red(`Unknown test method: ${name}`));
-            return;
-        }
-        await _runSuite(matching);
+    if (options.timeout) {
+        cliOptions.push('--timeout', options.timeout.toString());
     }
 
-    for (const name of suiteNamesToRun) {
-        await runSuite(name);
+    for (const file of files) {
+        try {
+            const code = await spawnRunner([file, ...cliOptions]);
+            code && console.error('Runner failed with "%s" code: %d', file, code);
+        } catch (e) {
+            console.error('Failed to spawn runner.', e);
+        }
     }
+}
 
-    return suitesRun.size;
+function spawnRunner(args: string[]): Promise<number | undefined> {
+    const ac = new AbortController();
+    const timeout = setTimeout(() => ac.abort(), defaultAbortTimeout);
+    const process = fork(pathToRunnerCliModule, args, { stdio: 'inherit', signal: ac.signal });
+
+    return new Promise((resolve, reject) => {
+        let completed = false;
+        let error: Error | undefined = undefined;
+        let exitCode: number | undefined = undefined;
+
+        function complete() {
+            if (completed) return;
+            clearTimeout(timeout);
+            completed = true;
+            process.connected && process.disconnect();
+            error ? reject(error) : resolve(exitCode);
+        }
+
+        process.on('error', (err) => {
+            error = err;
+            console.error('Runner error: %o', err);
+            complete();
+        });
+
+        process.on('exit', (code, _signal) => {
+            exitCode = code ?? undefined;
+            complete();
+        });
+    });
 }
 
 export async function run(argv?: string[], program?: Command): Promise<void> {

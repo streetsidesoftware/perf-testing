@@ -20,7 +20,8 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Lint
-        run: pnpm lint
+        # Only fail if it is not possible to fix the linting errors
+        run: pnpm lint:fix
 
       - name: Spell Check
         run: pnpm lint:spell

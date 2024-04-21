@@ -30,6 +30,7 @@ words:
   - lcov
   - ngram
   - pnpm
+  - Positionals
   - vitest
 ignoreWords: []
 import: []
