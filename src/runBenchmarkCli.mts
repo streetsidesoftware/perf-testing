@@ -11,20 +11,31 @@ import { runBenchmarkSuites } from './run.mjs';
 const cwdUrl = pathToFileURL(process.cwd() + '/');
 
 async function run(args: string[]) {
-    const parseConfig: ParseArgsConfig = {
+    interface ParsedOptions {
+        repeat?: string;
+        timeout?: string;
+        test?: string[];
+        suite?: string[];
+    }
+
+    const parseConfig = {
         args,
         strict: true,
         allowPositionals: true,
         options: {
             repeat: { type: 'string', short: 'r' },
             timeout: { type: 'string', short: 't' },
+            test: { type: 'string', short: 'T', multiple: true },
+            suite: { type: 'string', short: 'S', multiple: true },
         },
-    };
+    } as const satisfies ParseArgsConfig;
 
     const parsed = parseArgs(parseConfig);
 
     const repeat = Number(parsed.values['repeat'] || '0') || undefined;
     const timeout = Number(parsed.values['timeout'] || '0') || undefined;
+    const tests = parsed.values['test'];
+    const suites = parsed.values['suite'];
 
     const errors: Error[] = [];
 
@@ -47,7 +58,7 @@ async function run(args: string[]) {
         return;
     }
 
-    await runBenchmarkSuites(undefined, { repeat, timeout });
+    await runBenchmarkSuites(undefined, { repeat, timeout, tests, suites });
 }
 
 run(process.argv.slice(2));

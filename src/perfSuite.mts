@@ -127,16 +127,25 @@ export function getActiveSuites(): PerfSuite[] {
     return Array.from(activeSuites);
 }
 
+export interface PerfSuiteRunTestsOptions {
+    /**
+     * Filter for the tests to run.
+     * Only run tests that contain the filter string.
+     * Empty array will run all tests.
+     */
+    tests?: string[] | undefined;
+}
+
 export interface PerfSuite {
     readonly name: string;
     readonly description?: string | undefined;
-    readonly runTests: () => Promise<RunnerResult>;
+    readonly runTests: (options: PerfSuiteRunTestsOptions) => Promise<RunnerResult>;
     /**
      * Sets the default timeout for all tests in the suite.
      * @param timeout - time in milliseconds.
      * @returns PerfSuite
      */
-    readonly setTimeout: (timeout: number) => this;
+    readonly setTimeout: (timeout: number | undefined) => this;
 }
 
 export function suite(name: string, suiteFn: SuiteFn): PerfSuite;
@@ -155,15 +164,15 @@ export function runSuite(name: string, description: string | undefined, suiteFn:
 export function runSuite(name: string, suiteFn: SuiteFn): Promise<RunnerResult>;
 export function runSuite(suiteOrName: PerfSuite | string, p2?: string | SuiteFn, p3?: SuiteFn): Promise<RunnerResult> {
     if (typeof suiteOrName === 'object') {
-        return suiteOrName.runTests();
+        return suiteOrName.runTests({});
     }
 
     if (typeof p2 === 'function') {
-        return suite(suiteOrName, p2).runTests();
+        return suite(suiteOrName, p2).runTests({});
     }
 
     assert(typeof p3 === 'function', 'suiteFn must be a function');
-    return suite(suiteOrName, p2, p3).runTests();
+    return suite(suiteOrName, p2, p3).runTests({});
 }
 
 function toError(e: unknown): Error {
@@ -171,12 +180,12 @@ function toError(e: unknown): Error {
 }
 
 function formatResult(result: TestResult, nameWidth: number): string {
-    const { name, duration, iterations, sd } = result;
+    const { name, duration, iterations } = result;
 
-    const min = sd.min;
-    const max = sd.max;
-    const p95 = sd.ok ? sd.p95 : NaN;
-    const mean = sd.ok ? sd.mean : NaN;
+    // const min = sd.min;
+    // const max = sd.max;
+    // const p95 = sd.ok ? sd.p95 : NaN;
+    // const mean = sd.ok ? sd.mean : NaN;
     const ops = (iterations * 1000) / duration;
 
     if (result.error) {
@@ -184,13 +193,13 @@ function formatResult(result: TestResult, nameWidth: number): string {
     }
 
     const msg =
-        `${name.padEnd(nameWidth)}: ` +
-        `ops: ${ops.toFixed(2).padStart(8)} ` +
-        `cnt: ${iterations.toFixed(0).padStart(6)} ` +
-        `mean: ${mean.toPrecision(5).padStart(8)} ` +
-        `p95: ${p95.toPrecision(5).padStart(8)} ` +
-        `min/max: ${min.toPrecision(5).padStart(8)}/${max.toPrecision(5).padStart(8)} ` +
-        `${duration.toFixed(2).padStart(7)}ms `;
+        `${name.padEnd(nameWidth)}` +
+        ` ${ops.toFixed(2).padStart(8)} ops/sec` +
+        ` ${iterations.toFixed(0).padStart(6)} iterations` +
+        // ` mean: ${mean.toPrecision(5).padStart(8)} ` +
+        // ` p95: ${p95.toPrecision(5).padStart(8)} ` +
+        // ` min/max: ${min.toPrecision(5).padStart(8)}/${max.toPrecision(5).padStart(8)} ` +
+        ` ${duration.toFixed(2).padStart(7)}ms time`;
 
     return msg;
 }
@@ -210,17 +219,21 @@ class PerfSuiteImpl implements PerfSuite {
         registerSuite(this);
     }
 
-    runTests(): Promise<RunnerResult> {
-        return runTests(this);
+    runTests(options?: PerfSuiteRunTestsOptions): Promise<RunnerResult> {
+        return runTests(this, options);
     }
 
-    setTimeout(timeout: number): this {
-        this.timeout = timeout;
+    setTimeout(timeout: number | undefined): this {
+        this.timeout = timeout ?? this.timeout;
         return this;
     }
 }
 
-async function runTests(suite: PerfSuiteImpl, progress?: ProgressReporting): Promise<RunnerResult> {
+async function runTests(
+    suite: PerfSuiteImpl,
+    options: PerfSuiteRunTestsOptions | undefined,
+    progress?: ProgressReporting,
+): Promise<RunnerResult> {
     const stdout = progress?.stdout || process.stdout;
     const spinner = progress?.spinner || ora({ stream: stdout, discardStdin: false, hideCursor: false });
     const log = (msg: string) => stdout.write(msg + '\n');
@@ -279,8 +292,20 @@ async function runTests(suite: PerfSuiteImpl, progress?: ProgressReporting): Pro
     const beforeAllFns: UserFn[] = [];
     const afterAllFns: UserFn[] = [];
 
+    function filterTest(name: string): boolean {
+        if (!options?.tests) {
+            return true;
+        }
+
+        return options.tests.some((test) => name.toLowerCase().includes(test.toLowerCase()));
+    }
+
+    function addTest(test: TestDefinition) {
+        filterTest(test.name) && tests.push(test);
+    }
+
     function test(name: string, method: () => void, timeout?: number): void {
-        tests.push({ name, prepare: () => method, timeout });
+        addTest({ name, prepare: () => method, timeout });
     }
 
     function prepare<T>(prepareFn: () => T | Promise<T>): Prepared<Awaited<T>> {
@@ -297,7 +322,7 @@ async function runTests(suite: PerfSuiteImpl, progress?: ProgressReporting): Pro
 
                     return () => method(data);
                 };
-                tests.push({
+                addTest({
                     name,
                     prepare: fn,
                     timeout,

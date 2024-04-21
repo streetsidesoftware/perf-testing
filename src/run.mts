@@ -7,6 +7,8 @@ import { getActiveSuites } from './perfSuite.mjs';
 export interface RunOptions {
     repeat?: number | undefined;
     timeout?: number | undefined;
+    suites?: string[] | undefined;
+    tests?: string[] | undefined;
 }
 
 /**
@@ -50,15 +52,16 @@ async function runTestSuites(
     suitesToRun: (string | PerfSuite)[],
     options: RunOptions,
 ): Promise<number> {
-    const timeout = options.timeout || 1000;
+    const timeout = options.timeout || undefined;
     const suitesRun = new Set<PerfSuite>();
 
     async function _runSuite(suites: PerfSuite[]) {
         for (const suite of suites) {
             if (suitesRun.has(suite)) continue;
+            if (!filterSuite(suite)) continue;
             suitesRun.add(suite);
             console.log(chalk.green(`Running Perf Suite: ${suite.name}`));
-            await suite.setTimeout(timeout).runTests();
+            await suite.setTimeout(timeout).runTests({ tests: options.tests });
         }
     }
 
@@ -84,4 +87,10 @@ async function runTestSuites(
     }
 
     return suitesRun.size;
+
+    function filterSuite(suite: PerfSuite): boolean {
+        const { suites } = options;
+        if (!suites?.length) return true;
+        return !!suites.find((name) => suite.name.toLowerCase().includes(name.toLowerCase()));
+    }
 }

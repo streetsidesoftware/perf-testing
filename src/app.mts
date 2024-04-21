@@ -3,21 +3,22 @@ import { fileURLToPath } from 'node:url';
 
 import chalk from 'chalk';
 import { Argument, Command, program as defaultCommand } from 'commander';
-import { globby } from 'globby';
+
+import { findFiles } from './findFiles.mjs';
 
 interface AppOptions {
     repeat?: number;
     timeout?: number;
     all?: boolean;
+    suite?: string[];
+    test?: string[];
 }
 
 const urlRunnerCli = new URL('./runBenchmarkCli.mjs', import.meta.url).toString();
 const pathToRunnerCliModule = fileURLToPath(urlRunnerCli);
 
-console.log('args: %o', process.argv);
-
 export async function app(program = defaultCommand): Promise<Command> {
-    const argument = new Argument('[suite...]', 'list of test suites to run');
+    const argument = new Argument('[filter...]', 'perf file filter.');
     argument.variadic = true;
 
     program
@@ -25,16 +26,26 @@ export async function app(program = defaultCommand): Promise<Command> {
         .addArgument(argument)
         .description('Run performance tests.')
         .option('-a, --all', 'run all tests', false)
+        .option('-t, --timeout <timeout>', 'override the timeout for each test', (v) => Number(v))
+        .option('-s, --suite <suite...>', 'run matching suites', (v, a: string[] | undefined) => (a || []).concat(v))
+        .option('-T, --test <test...>', 'run matching test found in suites', (v, a: string[] | undefined) =>
+            (a || []).concat(v),
+        )
         .option('--repeat <count>', 'repeat the tests', (v) => Number(v), 1)
-        .option('-t, --timeout <timeout>', 'timeout for each test', (v) => Number(v), 1000)
-        .action(async (suiteNamesToRun: string[], options: AppOptions) => {
-            const found = await globby(['**/*.perf.{js,mjs,cjs}', '!**/node_modules/**']);
+        .action(async (suiteNamesToRun: string[], options: AppOptions, command: Command) => {
+            if (!suiteNamesToRun.length && !options.all) {
+                console.error(chalk.red('No tests to run.'));
+                console.error(chalk.yellow('Use --all to run all tests.\n'));
+                command.help();
+            }
+
+            // console.log('%o', options);
+
+            const found = await findFiles(['**/*.perf.{js,mjs,cjs}', '!**/node_modules/**']);
 
             const files = found.filter(
                 (file) => !suiteNamesToRun.length || suiteNamesToRun.some((name) => file.includes(name)),
             );
-
-            console.log('%o', { files, found });
 
             await spawnRunners(files, options);
 
@@ -56,6 +67,14 @@ async function spawnRunners(files: string[], options: AppOptions): Promise<void>
 
     if (options.timeout) {
         cliOptions.push('--timeout', options.timeout.toString());
+    }
+
+    if (options.suite?.length) {
+        cliOptions.push(...options.suite.flatMap((s) => ['--suite', s]));
+    }
+
+    if (options.test?.length) {
+        cliOptions.push(...options.test.flatMap((t) => ['--test', t]));
     }
 
     for (const file of files) {

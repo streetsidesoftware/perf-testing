@@ -76,7 +76,7 @@ suite('trie-insert', 'Insert words into a trie', async (test, { beforeAll }) => 
         assert(trie.has('hello'));
         return trie;
     });
-});
+}).setTimeout(2000);
 
 const numberOfSearchWords = 1000;
 
@@ -119,7 +119,7 @@ suite('trie-search', 'Search for words in a trie', async (_test, { prepare }) =>
     }).test('TrieBuilder.build(true)', (trie) => {
         return searchWords.map((word) => trie.has(word));
     });
-});
+}).setTimeout(1000);
 
 async function loadWords() {
     if (words) return words;

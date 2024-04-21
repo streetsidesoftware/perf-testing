@@ -7,11 +7,11 @@ export interface FindFileOptions {
     cwd?: string;
 }
 
-export async function findFiles(globs: string[], options: FindFileOptions) {
+export async function findFiles(globs: string[], options?: FindFileOptions) {
     const globOptions: GlobbyOptions = {
         ignore: excludes,
-        onlyFiles: options.onlyFiles ?? false,
-        cwd: options.cwd || process.cwd(),
+        onlyFiles: options?.onlyFiles ?? true,
+        cwd: options?.cwd || process.cwd(),
     };
     const files = await globby(
         globs.map((a) => a.trim()).filter((a) => !!a),
