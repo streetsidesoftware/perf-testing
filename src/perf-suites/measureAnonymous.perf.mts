@@ -1,6 +1,5 @@
 import { loremIpsum } from 'lorem-ipsum';
-
-import { suite } from '../perfSuite.mjs';
+import { suite } from 'perf-insight';
 
 const defaultTimeout = 2000;
 

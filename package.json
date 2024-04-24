@@ -60,6 +60,7 @@
     "eslint-plugin-n": "^17.2.1",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-simple-import-sort": "^12.1.0",
+    "fast-base64": "^0.1.8",
     "globals": "^15.0.0",
     "inject-markdown": "^3.0.0",
     "prettier": "^3.2.5",
@@ -76,7 +77,9 @@
     "cspell-trie-lib": "^8.7.0",
     "globby": "^14.0.1",
     "lorem-ipsum": "^2.0.8",
-    "ora": "^8.0.1"
+    "ora": "^8.0.1",
+    "perf-insight": "^1.1.1",
+    "ts-node": "^10.9.2"
   },
   "files": [
     "bin.mjs",

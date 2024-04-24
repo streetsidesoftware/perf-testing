@@ -1,8 +1,8 @@
 import { loremIpsum } from 'lorem-ipsum';
+import { suite } from 'perf-insight';
 
 import { SimpleTrie } from '../lib/SimpleTrie.mjs';
 import { Trie } from '../lib/Trie.mjs';
-import { suite } from '../perfSuite.mjs';
 
 const numWords = 10000;
 

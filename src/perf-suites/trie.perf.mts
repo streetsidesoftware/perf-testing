@@ -2,10 +2,10 @@ import assert from 'node:assert';
 import fs from 'node:fs/promises';
 
 import { buildITrieFromWords, buildTrie, buildTrieFast, TrieBuilder } from 'cspell-trie-lib';
+import { suite } from 'perf-insight';
 
 import { SimpleTrie } from '../lib/SimpleTrie.mjs';
 import { Trie } from '../lib/Trie.mjs';
-import { suite } from '../perfSuite.mjs';
 
 const wordsUrl = new URL('../../ngram/1-gram.tsv', import.meta.url);
 
