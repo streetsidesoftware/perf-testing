@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import assert from 'node:assert';
 import fs from 'node:fs/promises';
 
