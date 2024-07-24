@@ -7,8 +7,20 @@ suite('map', 'Measure .map and .filter performance with different functions', as
     const knownWords = loremIpsum({ count: 10000, units: 'words' }).split(' ');
 
     // test('baseline', () => {});
-    test('(a) => a.length', () => {
+    test('map (a) => a.length', () => {
         return knownWords.map((a) => a.length);
+    });
+
+    test('map (a) => !!a', () => {
+        return knownWords.map((a) => !!a);
+    });
+
+    test('map (a) => Boolean(a)', () => {
+        return knownWords.map((a) => Boolean(a));
+    });
+
+    test('map Boolean', () => {
+        return knownWords.map(Boolean);
     });
 
     test('filter Boolean', () => {
@@ -21,6 +33,28 @@ suite('map', 'Measure .map and .filter performance with different functions', as
 
     test('filter (a) => !!a', () => {
         return knownWords.filter((a) => !!a);
+    });
+
+    test('forEach((a) => sum += a.length)', () => {
+        let sum = 0;
+        knownWords.forEach((a) => (sum += a.length));
+        return sum;
+    });
+
+    test('for i, sum += knownWords[i].length', () => {
+        let sum = 0;
+        for (let i = 0; i < knownWords.length; i++) {
+            sum += knownWords[i].length;
+        }
+        return sum;
+    });
+
+    test('for word of knownWords, sum += word.length', () => {
+        let sum = 0;
+        for (const word of knownWords) {
+            sum += word.length;
+        }
+        return sum;
     });
 
     test('(a) => { return a.length; }', () => {

@@ -3,9 +3,14 @@ import assert from 'node:assert';
 import fs from 'node:fs/promises';
 
 // @ts-ignore
+import { B64chromium } from 'chromium-base64';
+import decodeDashBase64 from 'decode-base64';
+// @ts-ignore
 import { toBytes as fbToBytes } from 'fast-base64';
 // @ts-ignore
 import { toBytes as fbToBytesJs } from 'fast-base64/js';
+import fastBase64Decode from 'fast-base64-decode';
+import { atob as jsBase64Decode } from 'js-base64';
 import { suite } from 'perf-insight';
 
 import { base64Chars, decode } from '../lib/base64.mjs';
@@ -13,20 +18,30 @@ import { base64Chars, decode } from '../lib/base64.mjs';
 const textDecoder = new TextDecoder();
 const textEncoder = new TextEncoder();
 
+const numFmt = new Intl.NumberFormat();
+
 suite('base64', 'Measure the cost of base64 encoding and decoding', async (test) => {
     const dataRaw = await fs.readFile(new URL('../../ngram/1-gram.tsv', import.meta.url));
     const dataBase64 = dataRaw.toString('base64');
+    console.error('Size of Base64 String to decode: ', numFmt.format(dataBase64.length));
+    const b64Chromium = new B64chromium();
 
     assert(await verify(dataBase64, fbToBytes));
     assert(await verify(dataBase64, fbToBytesJs));
     assert(await verify(dataBase64, decode));
+    assert(await verify(dataBase64, (data) => b64Chromium.base64ToBytes(data)));
+    assert(await verify(dataBase64, decodeDashBase64));
 
-    test('base64 decode Buffer', () => Buffer.from(dataBase64, 'base64'));
+    test('base64 decode NodeJS.Buffer.from', () => Buffer.from(dataBase64, 'base64'));
     test('base64 decode', () => decode(dataBase64));
     test('base64 decodeInPlace', () => decodeBitwise(dataBase64));
     test('base64 decodeSlow', () => decodeSlow1(dataBase64));
     test('base64 decode fast-base64', () => fbToBytes(dataBase64));
     test('base64 decode fast-base64/js', () => fbToBytesJs(dataBase64));
+    test('base64 decode js-base64', () => jsBase64Decode(dataBase64));
+    test('base64 decode fast-base64-decode', () => fastBase64Decode(dataBase64, new Uint8Array(dataBase64.length)));
+    test('base64 decode chromium-base64', () => b64Chromium.base64ToBytes(dataBase64));
+    test('base64 decode decode-base64', () => decodeDashBase64(dataBase64));
 });
 
 async function verify(data: string, fn: (data: string) => Uint8Array | Promise<Uint8Array>): Promise<boolean> {

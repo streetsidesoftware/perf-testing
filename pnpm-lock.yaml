@@ -52,9 +52,15 @@ devDependencies:
   '@vitest/coverage-v8':
     specifier: ^1.5.0
     version: 1.5.0(vitest@1.5.0)
+  chromium-base64:
+    specifier: ^0.5.0
+    version: 0.5.0
   cspell:
     specifier: ^8.7.0
     version: 8.7.0
+  decode-base64:
+    specifier: ^3.0.1
+    version: 3.0.1
   eslint:
     specifier: ^9.0.0
     version: 9.0.0
@@ -79,12 +85,18 @@ devDependencies:
   fast-base64:
     specifier: ^0.1.8
     version: 0.1.8
+  fast-base64-decode:
+    specifier: ^2.0.0
+    version: 2.0.0
   globals:
     specifier: ^15.0.0
     version: 15.0.0
   inject-markdown:
     specifier: ^3.0.0
     version: 3.0.0
+  js-base64:
+    specifier: ^3.7.7
+    version: 3.7.7
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -1464,6 +1476,11 @@ packages:
       get-func-name: 2.0.2
     dev: true
 
+  /chromium-base64@0.5.0:
+    resolution: {integrity: sha512-pdOQxGRma04jRXut9qnsh7xz8tByO2IskCua4m9HX2D9JkEci6oCZ/CC7rdqWS/joW22JQmH/RpGpfCMDEiLeQ==}
+    engines: {node: '>=0.8.0'}
+    dev: true
+
   /clear-module@4.1.2:
     resolution: {integrity: sha512-LWAxzHqdHsAZlPlEyJ2Poz6AIs384mPeqLVCru2p0BrP9G/kVGuhNyZYClLO6cXlnuJjzC8xtsJIuMjKqLXoAw==}
     engines: {node: '>=8'}
@@ -1728,6 +1745,12 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.2
+    dev: true
+
+  /decode-base64@3.0.1:
+    resolution: {integrity: sha512-IWgiXlMAdm9c4RrOnvkFxYpfZRlOys4Wxnc/QT72hVLUZKCr7RPkfamgn2GXysCo06Zd4TGZyKaPHO4soBgSAg==}
+    dependencies:
+      node-buffer-encoding: 1.0.2
     dev: true
 
   /decode-named-character-reference@1.0.2:
@@ -2267,6 +2290,11 @@ packages:
 
   /extend@3.0.2:
     resolution: {integrity: sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==}
+    dev: true
+
+  /fast-base64-decode@2.0.0:
+    resolution: {integrity: sha512-daoVRZpW9HyioTWsGfCrHt6txY2BK/95qERn76vphgDfTzgqUDDMuEHHCWSPesdqPEclr7lU9TScJQYzekZ8wg==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: true
 
   /fast-base64@0.1.8:
@@ -2867,6 +2895,10 @@ packages:
     dependencies:
       html-escaper: 2.0.2
       istanbul-lib-report: 3.0.1
+    dev: true
+
+  /js-base64@3.7.7:
+    resolution: {integrity: sha512-7rCnleh0z2CkXhH67J8K1Ytz0b2Y+yxTPL+/KOJoa20hfnVQ/3/T6W/KflYI4bRHRagNeXeU2bkNGI3v1oS/lw==}
     dev: true
 
   /js-tokens@9.0.0:
@@ -3576,6 +3608,10 @@ packages:
 
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+    dev: true
+
+  /node-buffer-encoding@1.0.2:
+    resolution: {integrity: sha512-v2QFjf04xWb5Q7cyzbi8qEwe2vw2xJBXT7+pMOLA02+KJZlcJ/6syFYiH96ClXKfOG/kyBeysAuewJ7zfAUYKQ==}
     dev: true
 
   /node-domexception@1.0.0:
