@@ -80,8 +80,12 @@ suite('map', 'Measure .map and .filter performance with different functions', as
     test('(vfLen)', () => {
         return knownWords.map(vfLen);
     });
+}).setTimeout(defaultTimeout);
 
-    test('for of', () => {
+suite('Array', 'Measure adding a known number of elements to an array.', async (test) => {
+    const knownWords = loremIpsum({ count: 10000, units: 'words' }).split(' ');
+
+    test('for of push', () => {
         const result: number[] = [];
         for (const a of knownWords) {
             result.push(a.length);
@@ -89,7 +93,16 @@ suite('map', 'Measure .map and .filter performance with different functions', as
         return result;
     });
 
-    test('for i', () => {
+    test('for of with new Array(size)', () => {
+        const result: number[] = new Array(knownWords.length);
+        let i = 0;
+        for (const a of knownWords) {
+            result[i++] = a.length;
+        }
+        return result;
+    });
+
+    test('for i push', () => {
         const result: number[] = [];
         const words = knownWords;
         const len = words.length;
@@ -132,6 +145,17 @@ suite('map', 'Measure .map and .filter performance with different functions', as
     test('for i Array(size)', () => {
         const words = knownWords;
         const result: number[] = new Array(words.length);
+        const len = words.length;
+        for (let i = 0; i < len; i++) {
+            result[i] = words[i].length;
+        }
+        return result;
+    });
+
+    test('for i Array.length', () => {
+        const words = knownWords;
+        const result: number[] = [];
+        result.length = words.length;
         const len = words.length;
         for (let i = 0; i < len; i++) {
             result[i] = words[i].length;
