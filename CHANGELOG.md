@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/streetsidesoftware/perf-testing/compare/v1.0.2...v1.0.3) (2024-05-18)
+
+
+### Bug Fixes
+
+* Add n-gram downloader/parser ([3ee1424](https://github.com/streetsidesoftware/perf-testing/commit/3ee14244b7216743e5a42f394ad62b5a085036a1))
+* Add some perf tests ([1dd4d3c](https://github.com/streetsidesoftware/perf-testing/commit/1dd4d3c57999b3b04f26cad95932a32d611539af))
+
 ## [1.0.2](https://github.com/streetsidesoftware/template-typescript-cli-app/compare/v1.0.1...v1.0.2) (2024-04-17)
 
 
